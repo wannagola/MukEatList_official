@@ -1,37 +1,72 @@
 package com.example.mukeatlist.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import com.example.mukeatlist.data.paging.PhotoPagingSource
-import com.example.mukeatlist.data.repository.PhotoRepository
+import com.example.mukeatlist.data.model.FeedPhotoItem
+import com.example.mukeatlist.data.repository.RestaurantRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.UUID
 
-class PhotoFeedViewModel : ViewModel() {
+class PhotoFeedViewModel(private val repository: RestaurantRepository) : ViewModel() {
 
-    // ✅ 1) fetcher 람다를 먼저 만든다 (PagingSource가 원하는 타입)
-    private val fetcher: suspend (Int, Int) -> List<com.example.mukeatlist.data.model.FeedPhoto> =
-        { page, size ->
-            // ✅ 2) Repository는 "fetcher"를 받아야 하니까, 여기서 주입해서 만든다
-            val repository = PhotoRepository(fetcher = { p, s ->
-                // 🔥 여기 부분은 “실제 네가 사진을 가져오는 로직”으로 바꿔야 함.
-                // 지금은 무한재귀 방지 위해 아래처럼 직접 구현해야 함.
-                // (아래에 바로 안전한 예시도 같이 줄게)
-                emptyList()
-            })
+    private val _photos = MutableStateFlow<List<FeedPhotoItem>>(emptyList())
+    val photos: StateFlow<List<FeedPhotoItem>> = _photos
 
-            // ⚠️ 위 repository가 현재 emptyList만 반환하므로, 여기서도 그냥 emptyList로 반환
-            // 실제 구현을 아래 "A안 / B안" 중 하나로 바꿔라
-            emptyList()
+    init {
+        loadPhotos()
+    }
+
+    private fun loadPhotos() {
+        viewModelScope.launch {
+            val items = withContext(Dispatchers.IO) {
+                val restaurants = repository.getRestaurants()
+                val photoItems = mutableListOf<FeedPhotoItem>()
+                
+                restaurants.forEach { restaurant ->
+                    // 1. Thumbnail
+                    if (restaurant.thumbnailUrl.isNotBlank()) {
+                        photoItems.add(
+                            FeedPhotoItem(
+                                id = UUID.randomUUID().toString(),
+                                imageUrl = restaurant.thumbnailUrl,
+                                restaurant = restaurant
+                            )
+                        )
+                    }
+                    // 2. Extra Photos
+                    restaurant.photoUrls.forEach { url ->
+                        if (url.isNotBlank()) {
+                            photoItems.add(
+                                FeedPhotoItem(
+                                    id = UUID.randomUUID().toString(),
+                                    imageUrl = url,
+                                    restaurant = restaurant
+                                )
+                            )
+                        }
+                    }
+                }
+                // Shuffle for random feed look
+                photoItems.shuffle()
+                photoItems
+            }
+            _photos.value = items
         }
+    }
+}
 
-    // ✅ PagingData Flow
-    val photos = Pager(
-        config = PagingConfig(
-            pageSize = 20,
-            enablePlaceholders = false
-        ),
-        pagingSourceFactory = { PhotoPagingSource(fetcher = fetcher) }
-    ).flow.cachedIn(viewModelScope)
+class PhotoFeedViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(PhotoFeedViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return PhotoFeedViewModel(RestaurantRepository(context)) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }
