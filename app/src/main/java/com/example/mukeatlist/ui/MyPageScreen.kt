@@ -50,7 +50,7 @@ fun MyPageScreen(paddingValues: PaddingValues) {
                 .height(120.dp),
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF800020) // Burgundy
+                containerColor = Color(0xFF660033) // Deep Burgundy
             ),
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
         ) {
