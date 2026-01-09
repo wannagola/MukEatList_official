@@ -34,11 +34,6 @@ fun PhotoFeedScreen(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        // 첫 칸은 + 버튼 (기능 유지)
-        item {
-            AddCell(onClick = onAddClick)
-        }
-
         items(photos, key = { it.id }) { item ->
             PhotoCell(
                 imageUrl = item.imageUrl,
