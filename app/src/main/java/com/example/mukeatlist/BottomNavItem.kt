@@ -11,7 +11,7 @@ sealed class BottomNavItem(
     object List : BottomNavItem(
         route = "list",
         label = "맛집 리스트",
-        iconRes = android.R.drawable.ic_menu_sort_by_size
+        iconRes = R.drawable.list_icon
     )
 
     object Feed : BottomNavItem(
@@ -23,7 +23,7 @@ sealed class BottomNavItem(
     object My : BottomNavItem(
         route = "my",
         label = "마이페이지",
-        iconRes = android.R.drawable.ic_menu_myplaces
+        iconRes = R.drawable.my_icon
     )
 
     companion object {
