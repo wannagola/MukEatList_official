@@ -13,10 +13,15 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.UUID
 
-class PhotoFeedViewModel(private val repository: RestaurantRepository) : ViewModel() {
+class PhotoFeedViewModel(
+    private val repository: RestaurantRepository,
+    private val visitRepository: com.example.mukeatlist.data.repository.VisitRepository
+) : ViewModel() {
 
     private val _photos = MutableStateFlow<List<FeedPhotoItem>>(emptyList())
     val photos: StateFlow<List<FeedPhotoItem>> = _photos
+    
+    val visitedIds: StateFlow<Set<String>> = visitRepository.visitedIds
 
     init {
         loadPhotos()
@@ -59,13 +64,18 @@ class PhotoFeedViewModel(private val repository: RestaurantRepository) : ViewMod
             _photos.value = items
         }
     }
+    
+    fun toggleVisit(restaurantId: String) {
+        visitRepository.toggleVisit(restaurantId)
+    }
 }
 
 class PhotoFeedViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PhotoFeedViewModel::class.java)) {
+            val visitRepo = com.example.mukeatlist.data.repository.VisitRepository.getInstance(context)
             @Suppress("UNCHECKED_CAST")
-            return PhotoFeedViewModel(RestaurantRepository(context)) as T
+            return PhotoFeedViewModel(RestaurantRepository(context), visitRepo) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

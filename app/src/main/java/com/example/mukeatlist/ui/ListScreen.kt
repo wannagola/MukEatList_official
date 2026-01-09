@@ -36,6 +36,7 @@ fun ListScreen(paddingValues: PaddingValues) {
     val categories by viewModel.categories.collectAsState()
     val selectedCategoryId by viewModel.selectedCategoryId.collectAsState()
     val restaurants by viewModel.restaurants.collectAsState()
+    val visitedIds by viewModel.visitedIds.collectAsState()
     
     var selectedRestaurant by remember { mutableStateOf<Restaurant?>(null) }
 
@@ -94,7 +95,9 @@ fun ListScreen(paddingValues: PaddingValues) {
             items(restaurants) { restaurant ->
                 RestaurantItem(
                     restaurant = restaurant,
-                    onClick = { selectedRestaurant = restaurant }
+                    isVisited = visitedIds.contains(restaurant.id),
+                    onClick = { selectedRestaurant = restaurant },
+                    onVisitToggle = { viewModel.toggleVisit(restaurant.id) }
                 )
             }
         }
@@ -102,8 +105,11 @@ fun ListScreen(paddingValues: PaddingValues) {
 
     // Detail Modal
     if (selectedRestaurant != null) {
+        val restaurant = selectedRestaurant!!
         RestaurantDetailDialog(
-            restaurant = selectedRestaurant!!,
+            restaurant = restaurant,
+            isVisited = visitedIds.contains(restaurant.id),
+            onVisitToggle = { viewModel.toggleVisit(restaurant.id) },
             onDismiss = { selectedRestaurant = null }
         )
     }
