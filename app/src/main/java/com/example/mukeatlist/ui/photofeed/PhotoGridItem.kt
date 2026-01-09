@@ -13,20 +13,46 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material3.Icon
+import androidx.compose.ui.graphics.Color
+
 @Composable
 fun PhotoCell(
     imageUrl: String,
+    isVisited: Boolean,
     onClick: () -> Unit
 ) {
-    AsyncImage(
-        model = imageUrl,
-        contentDescription = null,
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f)
             .clip(RoundedCornerShape(6.dp))
             .clickable(onClick = onClick)
-    )
+    ) {
+        AsyncImage(
+            model = imageUrl,
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize()
+        )
+        
+        if (isVisited) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp),
+                contentAlignment = Alignment.TopEnd
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = "방문함",
+                    tint = Color(0xFFD32F2F), // Red
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+    }
 }
 
 @Composable

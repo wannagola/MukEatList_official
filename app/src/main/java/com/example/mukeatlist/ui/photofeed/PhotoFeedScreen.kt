@@ -21,6 +21,7 @@ fun PhotoFeedScreen(
     onAddClick: () -> Unit
 ) {
     val photos by vm.photos.collectAsState()
+    val visitedIds by vm.visitedIds.collectAsState()
     var selectedRestaurant by remember { mutableStateOf<Restaurant?>(null) }
 
     LazyVerticalGrid(
@@ -41,14 +42,18 @@ fun PhotoFeedScreen(
         items(photos, key = { it.id }) { item ->
             PhotoCell(
                 imageUrl = item.imageUrl,
+                isVisited = visitedIds.contains(item.restaurant.id),
                 onClick = { selectedRestaurant = item.restaurant }
             )
         }
     }
 
     if (selectedRestaurant != null) {
+        val restaurant = selectedRestaurant!!
         RestaurantDetailDialog(
-            restaurant = selectedRestaurant!!,
+            restaurant = restaurant,
+            isVisited = visitedIds.contains(restaurant.id),
+            onVisitToggle = { vm.toggleVisit(restaurant.id) },
             onDismiss = { selectedRestaurant = null }
         )
     }

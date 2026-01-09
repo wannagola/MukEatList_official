@@ -6,13 +6,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.mukeatlist.data.model.Restaurant
 import com.example.mukeatlist.data.repository.RestaurantRepository
+import com.example.mukeatlist.data.repository.VisitRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RestaurantViewModel(private val repository: RestaurantRepository) : ViewModel() {
+class RestaurantViewModel(
+    private val repository: RestaurantRepository,
+    private val visitRepository: VisitRepository
+) : ViewModel() {
 
     private val _categories = MutableStateFlow<List<com.example.mukeatlist.data.model.Category>>(emptyList())
     val categories: StateFlow<List<com.example.mukeatlist.data.model.Category>> = _categories
@@ -22,6 +26,8 @@ class RestaurantViewModel(private val repository: RestaurantRepository) : ViewMo
 
     private val _restaurants = MutableStateFlow<List<Restaurant>>(emptyList())
     val restaurants: StateFlow<List<Restaurant>> = _restaurants
+    
+    val visitedIds: StateFlow<Set<String>> = visitRepository.visitedIds
 
     init {
         loadData()
@@ -34,7 +40,6 @@ class RestaurantViewModel(private val repository: RestaurantRepository) : ViewMo
             }
             _categories.value = categoryList
             
-            // Default to the first category if available, or stay null (All)
              if (categoryList.isNotEmpty()) {
                  onCategorySelected(categoryList.first().id)
              } else {
@@ -53,13 +58,18 @@ class RestaurantViewModel(private val repository: RestaurantRepository) : ViewMo
             _restaurants.value = selected?.restaurants ?: emptyList()
         }
     }
+    
+    fun toggleVisit(restaurantId: String) {
+        visitRepository.toggleVisit(restaurantId)
+    }
 }
 
 class RestaurantViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RestaurantViewModel::class.java)) {
+            val visitRepo = VisitRepository.getInstance(context)
             @Suppress("UNCHECKED_CAST")
-            return RestaurantViewModel(RestaurantRepository(context)) as T
+            return RestaurantViewModel(RestaurantRepository(context), visitRepo) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
