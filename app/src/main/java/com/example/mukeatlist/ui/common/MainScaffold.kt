@@ -11,6 +11,9 @@ import com.example.mukeatlist.ui.photofeed.PhotoFeedScreen
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mukeatlist.viewmodel.PhotoFeedViewModel
 
+import androidx.compose.ui.platform.LocalContext
+import com.example.mukeatlist.viewmodel.PhotoFeedViewModelFactory
+
 @Composable
 fun MainScaffold() {
     // 현재 탭 상태 (기본: 사진 피드로 시작하고 싶으면 Feed)
@@ -21,6 +24,8 @@ fun MainScaffold() {
         BottomNavItem.Feed,
         BottomNavItem.My
     )
+    
+    val context = LocalContext.current
 
     Scaffold(
         topBar = { AppTopBar() },
@@ -35,7 +40,9 @@ fun MainScaffold() {
         when (currentRoute) {
             BottomNavItem.List.route -> ListScreen(paddingValues)
             BottomNavItem.Feed.route -> {
-                val vm: PhotoFeedViewModel = viewModel()
+                val vm: PhotoFeedViewModel = viewModel(
+                    factory = PhotoFeedViewModelFactory(context)
+                )
                 PhotoFeedScreen(
                     paddingValues = paddingValues,
                     vm = vm,

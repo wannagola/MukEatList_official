@@ -84,4 +84,7 @@ dependencies {
     // ✅ 디버그용(프리뷰/툴링)
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 }
