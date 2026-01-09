@@ -27,6 +27,6 @@ sealed class BottomNavItem(
     )
 
     companion object {
-        val items = listOf(List, Feed, My)
+        //val items = listOf(List, Feed, My)
     }
 }
