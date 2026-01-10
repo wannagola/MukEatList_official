@@ -36,7 +36,11 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.draw.rotate
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 
+@OptIn(ExperimentalFoundationApi::class) // stickyHeader 사용을 위해 필수
 @Composable
 fun MyPageScreen(paddingValues: PaddingValues) {
     val context = LocalContext.current
@@ -47,128 +51,138 @@ fun MyPageScreen(paddingValues: PaddingValues) {
     val totalVisitedCount by viewModel.totalVisitedCount.collectAsState()
     val badges by viewModel.badges.collectAsState()
 
-    Column(
+    // [핵심 변경] Column 대신 LazyColumn 사용
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues)
-            .padding(16.dp)
+            .padding(paddingValues), // 전체 화면 패딩
+        contentPadding = PaddingValues(16.dp) // 리스트 내부 여백
     ) {
         // ==========================================
-        // 1. 상단 통계 카드 (통합됨)
+        // 1. 상단 통계 카드 (item으로 넣어서 스크롤 되게 함)
         // ==========================================
-        Card(
-            modifier = Modifier
-                .fillMaxWidth(),
-            // 높이를 고정(.height(120.dp))하지 않고 내용물에 맞게 늘어나도록 제거했습니다.
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF660033) // Deep Burgundy 배경색
-            ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-        ) {
-            Column(
+        item {
+            Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(20.dp) // 카드 내부 여백
+                    .animateContentSize(),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF660033)
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
-                // 1-1. 총 방문 식당 텍스트
-                Text(
-                    text = "맛집 도장깨기",
-                    color = Color.White,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = "나만의 맛집 탐방 기록",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium
-                )
-                // 1-2. 방문 횟수 (큰 숫자)
-
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // 1-3. 하단 미니 카드들 (Row로 배치)
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color.White.copy(alpha = 0.2f)
-                    ),
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp)
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(12.dp),
+                    Text(
+                        text = "맛집 도장깨기",
+                        color = Color.White,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "나만의 맛집 탐방 기록",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // 내부 미니 카드 및 확장형 그리드
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White.copy(alpha = 0.2f)
+                        ),
                     ) {
-                        Text(
-                            text = totalVisitedCount.toString(),
-                            color = Color.White,
-                            fontSize = 32.sp,
-                            fontWeight = FontWeight.Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-
-                        Spacer(modifier = Modifier.height(4.dp))
-
-                        Text(
-                            text = "총 방문 식당",
-                            color = Color.White,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Medium,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-
-                        Spacer(modifier = Modifier.height(4.dp))
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp) // 카드 사이 간격
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 12.dp),
                         ) {
-                            badges.forEach { badge ->
-                            MiniStatCard(
-                                badge = badge,
-                                modifier = Modifier.weight(1f)
-                                )
-                            }
+                            Text(
+                                text = totalVisitedCount.toString(),
+                                color = Color.White,
+                                fontSize = 32.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "총 방문 식당",
+                                color = Color.White,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Medium,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            Spacer(modifier = Modifier.height(0.dp))
+
+                            // 기존에 만드신 확장형 그리드 (그대로 사용)
+                            ExpandableBadgeGrid(badges)
                         }
                     }
                 }
             }
+
+            // 카드와 헤더 사이 간격
+            Spacer(modifier = Modifier.height(24.dp))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
-
         // ==========================================
-        // 2. 뱃지 섹션 헤더
+        // 2. 뱃지 섹션 헤더 (Sticky Header 적용!)
         // ==========================================
-        Text(
-            text = "나의 뱃지",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = 4.dp)
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // ==========================================
-        // 3. 뱃지 그리드 리스트
-        // ==========================================
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(3), // 한 줄에 3개씩
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier.fillMaxSize() // 남은 공간 채우기
-        ) {
-            items(badges) { badge ->
-                BadgeItem(badge = badge)
+        stickyHeader {
+            // [중요] 배경색(Surface)을 줘야 스크롤 올라가는 아이템이 비치지 않습니다.
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                color = MaterialTheme.colorScheme.background // 혹은 Color.White 등 배경색
+            ) {
+                Text(
+                    text = "나의 뱃지",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(vertical = 16.dp, horizontal = 4.dp)
+                )
             }
+        }
+
+        // ==========================================
+        // 3. 뱃지 그리드 리스트 (LazyColumn에서 Grid 흉내내기)
+        // ==========================================
+        // GridCells.Fixed(2)와 똑같은 효과를 내기 위해 데이터를 2개씩 묶습니다.
+        val rows = badges.chunked(2)
+
+        items(rows) { rowBadges ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp), // 아래쪽 간격 (verticalArrangement 대체)
+                horizontalArrangement = Arrangement.spacedBy(12.dp) // 좌우 간격
+            ) {
+                rowBadges.forEach { badge ->
+                    // weight(1f)로 공간을 똑같이 나눔
+                    Box(modifier = Modifier.weight(1f)) {
+                        BadgeItem(badge = badge)
+                    }
+                }
+
+                // [중요] 홀수 개수일 때 빈 공간 채우기 (모양 깨짐 방지)
+                if (rowBadges.size < 2) {
+                    Spacer(modifier = Modifier.weight(1f))
+                }
+            }
+        }
+
+        // 리스트 바닥 여백 추가 (선택사항)
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -278,60 +292,72 @@ fun MiniStatCard(
         }
     }
 }
-/*
+
 @Composable
-fun ExpandableCard(
-    title: String,
-    // ▼ String 대신 "화면 그리는 함수"를 통째로 받겠다고 선언
-    content: @Composable () -> Unit
-) {
+fun ExpandableBadgeGrid(badges: List<BadgeUiState>) {
+    // 1. 상태 변수 (false: 접힘, true: 펼쳐짐)
     var expanded by remember { mutableStateOf(false) }
+
+    // 2. 한 줄에 몇 개씩 보여줄지 설정
+    val columnCount = 2
+
+    val sortedBadges = remember(badges) { // remember를 써서 불필요한 재정렬 방지
+        badges.sortedByDescending { it.visitedCount }
+    }
+    // 3. [핵심 로직] 보여줄 데이터 필터링
+    // expanded가 true면 전체, false면 첫 줄 개수(3개)만큼만 자름
+    val visibleBadges = if (expanded) sortedBadges else sortedBadges.take(columnCount)
+
+    // 4. 화살표 회전 애니메이션
     val rotationState by animateFloatAsState(
         targetValue = if (expanded) 180f else 0f, label = "rotation"
     )
 
-    Card(
+    // 전체를 감싸는 컬럼 (애니메이션 적용 대상)
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
-            .animateContentSize(), // 애니메이션 필수
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF660033))
+            .animateContentSize() // [마법] 내용물(그리드) 높이가 변할 때 부드럽게 늘어남
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            // 제목
-            Text(
-                text = title,
-                fontSize = 20.sp,
-                color = Color.White,
-                fontWeight = FontWeight.Bold
-            )
+        // 그리드 (데이터 개수에 따라 높이 자동 조절)
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(columnCount),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            //verticalArrangement = Arrangement.spacedBy(12.dp),
 
-            // ▼ 내용물이 펼쳐졌을 때, 전달받은 content()를 그대로 실행(그리기)합니다.
-            if (expanded) {
-                Spacer(modifier = Modifier.height(12.dp))
+            // [중요] 그리드 자체의 스크롤을 막아야 합니다!
+            // 그래야 카드가 늘어날 때 전체 화면(MyPageScreen)이 스크롤됩니다.
+            userScrollEnabled = false,
 
-                // 여기가 마법이 일어나는 곳입니다!
-                // String을 출력하는 게 아니라 넘겨받은 UI 덩어리를 그립니다.
-                content()
+            modifier = Modifier
+                .fillMaxWidth()
+                // 그리드 높이를 내용물에 딱 맞춤 (최대 높이 제한을 넉넉히 줌)
+                .heightIn(max = 2000.dp)
+        ) {
+            items(visibleBadges) { badge ->
+                MiniStatCard(badge = badge)
             }
+        }
 
-            // 화살표 버튼
+        Spacer(modifier = Modifier.height(0.dp))
+
+        // 펼치기/접기 버튼 (뱃지가 3개보다 많을 때만 보임)
+        if (badges.size > columnCount) {
             Box(
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(32.dp),
                 contentAlignment = Alignment.Center
             ) {
-                IconButton(
-                    onClick = { expanded = !expanded },
-                    modifier = Modifier.rotate(rotationState)
-                ) {
+                IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowDown,
-                        contentDescription = null,
-                        tint = Color.White
+                        contentDescription = "더보기",
+                        modifier = Modifier.rotate(rotationState),
+                        tint = Color.Gray
                     )
                 }
             }
         }
     }
-}*/
+}
