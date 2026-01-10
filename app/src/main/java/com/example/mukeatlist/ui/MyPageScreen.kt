@@ -1,117 +1,174 @@
 package com.example.mukeatlist.ui
 
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.mukeatlist.R
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.ui.graphics.Color      // Color (색상)
-import androidx.compose.ui.unit.sp            // sp (글자 크기 단위)
-import androidx.compose.ui.text.font.FontWeight // FontWeight (글자 굵기)
-import androidx.compose.foundation.background   // background (배경색 Modifier)
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mukeatlist.viewmodel.BadgeUiState
+import com.example.mukeatlist.viewmodel.MyPageViewModel
+import com.example.mukeatlist.viewmodel.MyPageViewModelFactory
 
 @Composable
 fun MyPageScreen(paddingValues: PaddingValues) {
-
-    val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    val viewModel: MyPageViewModel = viewModel(
+        factory = MyPageViewModelFactory(context)
+    )
+    
+    val totalVisitedCount by viewModel.totalVisitedCount.collectAsState()
+    val badges by viewModel.badges.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
-            .verticalScroll(scrollState), // Scaffold의 padding 적용
-        horizontalAlignment = Alignment.CenterHorizontally, // 가로 중앙 정렬
-        verticalArrangement = Arrangement.Center // 세로 중앙 정렬 (화면 한가운데)
+            .padding(16.dp)
     ) {
-        // 1. 큰 박스 (Card)
+        // 1. Top Statistics Card (Burgundy)
         Card(
             modifier = Modifier
-                .fillMaxWidth() // 가로 꽉 채우기
-                .padding(16.dp), // 바깥 여백
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp), // 그림자 효과
-            colors = CardDefaults.cardColors(containerColor = Color.White) // 박스 배경색
+                .fillMaxWidth()
+                .height(120.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF660033) // Deep Burgundy
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize() // 카드 꽉 채우기
-                    .background(
-                        brush = Brush.linearGradient( // 대각선 그라디언트
-                            colors = listOf(Color(0xFF6200EE), Color(0xFF03DAC5)) // 보라 -> 민트
-                        )
-                    )
-            )
-            // 2. 박스 내부 정렬 (세로로 쌓기 위해 Column 사용)
             Column(
-                modifier = Modifier.padding(16.dp) // 박스 안쪽 내용물과의 여백
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // 3. 박스 안의 글자
-                Text(text = "맛집 도장깨기", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp)) // 간격 띄우기
-                Text(text = "나만의 맛집 탐방 기록", fontSize = 16.sp)
-
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth() // 가로 꽉 채우기
-                        .padding(8.dp), // 바깥 여백
-                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp), // 그림자 효과
-                    colors = CardDefaults.cardColors(containerColor = Color.Red) // 박스 배경색
-                ){
-                    Text(text = "맛집 도장깨기", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                }
-
-                // 4. 박스 안의 작은 박스들 (가로로 배치하려면 Row)
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween // 사이 간격 벌리기
-                ) {
-                    // 작은 박스 1
-                    Box(
-                        modifier = Modifier
-                            .size(80.dp) // 크기 80x80
-                            .background(Color.LightGray) // 회색 배경
-                    ) {
-                        Text("작은박스1", modifier = Modifier.align(Alignment.Center))
-                    }
-
-                    // 작은 박스 2
-                    Box(
-                        modifier = Modifier
-                            .size(80.dp)
-                            .background(Color.Yellow) // 노란 배경
-                    ) {
-                        Text("작은박스2", modifier = Modifier.align(Alignment.Center))
-                    }
-                }
+                Text(
+                    text = "내가 다녀간 맛집",
+                    color = Color.White.copy(alpha = 0.8f),
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "${totalVisitedCount}곳",
+                    color = Color.White,
+                    fontSize = 36.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
         }
-        // 2. XML 벡터 이미지 표시
-        Image(
-            painter = painterResource(id = R.drawable.cook_icon),
-            contentDescription = "요리사 아이콘",
-            modifier = Modifier.size(80.dp), // 크기 조절 (원하는 대로 변경)
-            // colorFilter = ColorFilter.tint(Color.Black) // 색상을 코드로 바꾸고 싶다면 주석 해제
-        )
 
-        Spacer(modifier = Modifier.height(16.dp)) // 이미지와 텍스트 사이 간격
+        Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "마이페이지 (준비중)"
+            text = "나의 뱃지",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 4.dp)
         )
+        
+        Spacer(modifier = Modifier.height(16.dp))
 
-        Spacer(modifier = Modifier.height(500.dp))
+        // 2. Badge Grid
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(badges) { badge ->
+                BadgeItem(badge = badge)
+            }
+        }
+    }
+}
 
-        Text("아래 숨겨진 텍스트")
+@Composable
+fun BadgeItem(badge: BadgeUiState) {
+    // Active Colors
+    val activeContainerColor = Color(0xFFFFF3E0) // Light Orange/Gold bg
+    val activeIconColor = Color(0xFFFFB300) // Gold
+    val activeTextColor = Color.Black
+
+    // Inactive Colors (Gray)
+    val inactiveContainerColor = Color(0xFFF5F5F5)
+    val inactiveIconColor = Color.Gray
+    val inactiveTextColor = Color.Gray
+
+    val isCompleted = badge.isCompleted
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(160.dp),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isCompleted) Color.White else inactiveContainerColor
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = if (isCompleted) 2.dp else 0.dp
+        ),
+        border = if (isCompleted) androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFFFB300)) else null
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            // Icon Circle
+            Box(
+                modifier = Modifier
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(if (isCompleted) activeContainerColor else Color.LightGray.copy(alpha = 0.3f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = if (isCompleted) Icons.Filled.Star else Icons.Filled.Lock,
+                    contentDescription = null,
+                    tint = if (isCompleted) activeIconColor else inactiveIconColor,
+                    modifier = Modifier.size(32.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Title
+            Text(
+                text = badge.title,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = if (isCompleted) activeTextColor else inactiveTextColor,
+                maxLines = 1
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
+
+            // Progress (e.g., 5/5)
+            Text(
+                text = "${badge.visitedCount}/${badge.totalCount}",
+                fontSize = 12.sp,
+                color = if (isCompleted) Color(0xFF800020) else Color.Gray,
+                fontWeight = FontWeight.Medium
+            )
+        }
     }
 }
