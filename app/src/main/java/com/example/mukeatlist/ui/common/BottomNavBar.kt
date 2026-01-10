@@ -8,6 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.example.mukeatlist.BottomNavItem
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.example.mukeatlist.R
 
 @Composable
 fun BottomNavBar(
@@ -19,6 +24,7 @@ fun BottomNavBar(
     NavigationBar(modifier = modifier) {
         items.forEach { item ->
             val selected = currentRoute == item.route
+            val myCustomFont = FontFamily(Font(R.font.mujinjang)) // 폰트 변수 정의
 
             NavigationBarItem(
                 selected = selected,
@@ -29,7 +35,11 @@ fun BottomNavBar(
                         contentDescription = item.label
                     )
                 },
-                label = { Text(text = item.label) }
+                label = { Text(
+                    text = item.label,
+                    fontFamily = myCustomFont,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.ExtraBold) }
             )
         }
     }
