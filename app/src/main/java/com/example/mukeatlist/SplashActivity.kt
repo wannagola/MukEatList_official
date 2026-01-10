@@ -42,7 +42,7 @@ fun SplashScreen(onTimeout: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF660033)),
+            .background(Color(0xFF4C0D29)),
         contentAlignment = Alignment.Center
     ) {
         Image(

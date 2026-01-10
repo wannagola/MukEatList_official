@@ -27,6 +27,7 @@ import com.example.mukeatlist.viewmodel.BadgeUiState
 import com.example.mukeatlist.viewmodel.MyPageViewModel
 import com.example.mukeatlist.viewmodel.MyPageViewModelFactory
 
+
 @Composable
 fun MyPageScreen(paddingValues: PaddingValues) {
     val context = LocalContext.current
