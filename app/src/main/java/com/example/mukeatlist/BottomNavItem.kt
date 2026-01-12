@@ -17,7 +17,7 @@ sealed class BottomNavItem(
     object Feed : BottomNavItem(
         route = "feed",
         label = "사진 피드",
-        iconRes = android.R.drawable.ic_menu_gallery
+        iconRes = R.drawable.gallery_icon
     )
 
     object My : BottomNavItem(
