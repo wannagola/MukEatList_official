@@ -1,5 +1,6 @@
 package com.example.mukeatlist.ui.common
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -25,6 +26,16 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.viewinterop.AndroidView
+import com.kakao.vectormap.MapView
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.rememberScrollState // 스크롤 위치 기억
+import androidx.compose.foundation.verticalScroll    // 수직 스크롤 활성화
+import com.kakao.vectormap.MapLifeCycleCallback
+import com.kakao.vectormap.KakaoMapReadyCallback
+import com.kakao.vectormap.KakaoMap
+
+
 @Composable
 fun RestaurantDetailDialog(
     restaurant: Restaurant,
@@ -32,6 +43,7 @@ fun RestaurantDetailDialog(
     onVisitToggle: () -> Unit,
     onDismiss: () -> Unit
 ) {
+    val scrollState = rememberScrollState() //
     Dialog(onDismissRequest = onDismiss) {
         Card(
             modifier = Modifier
@@ -41,7 +53,9 @@ fun RestaurantDetailDialog(
             colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(scrollState) // ✅ 이 줄이 추가되어 스크롤이 가능해졌습니다.
             ) {
                 // ==========================================
                 // 1. 이미지 슬라이더 영역 (헤더)
@@ -217,12 +231,65 @@ fun RestaurantDetailDialog(
 
                     Spacer(modifier = Modifier.height(24.dp))
 
-                    Button(
-                        onClick = onDismiss,
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF800020))
+                    // ✅ 추가된 카카오 지도 영역
+                    Text(
+                        text = "위치 보기",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(300.dp) // ✅ 높이를 반드시 'dp' 숫자로 고정해야 스크롤 안에서 보입니다!
+                            .padding(horizontal = 4.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(Color.Yellow)
                     ) {
-                        Text("닫기")
+                        // Compose 안에서 기존 View(MapView)를 사용하게 해주는 다리 역할
+                        AndroidView(
+                            modifier = Modifier.fillMaxSize(),
+                            factory = { context ->
+                                android.util.Log.d("KakaoMap", "MapView Factory 시작됨")
+                                // 1. MapView 객체 생성
+                                MapView(context).apply {
+                                    // 2. 지도 시작 (인증 및 초기화)
+                                    start(object : MapLifeCycleCallback() {
+                                        override fun onMapDestroy() {
+                                            // 지도 종료 시 처리
+                                        }
+                                        override fun onMapError(error: Exception?) {
+                                            // 인증 실패 시 로그캣에 에러 출력
+                                            android.util.Log.e("KakaoMap", "인증 에러: ${error?.message}")
+                                        }
+                                    }, object : KakaoMapReadyCallback() {
+                                        override fun onMapReady(kakaoMap: KakaoMap) {
+                                            // ✅ 여기서 지도가 화면에 나타납니다!
+                                            android.util.Log.d("KakaoMap", "지도 준비 완료")
+                                        }
+                                    })
+                                }
+                            },
+                            update = { mapView ->
+                                // 3. Compose의 상태 변화에 따라 resume/pause를 관리하고 싶을 때 사용
+                                // 단순 팝업이라면 start만으로도 지도가 뜹니다.
+                            })
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Button(
+                            onClick = onDismiss,
+                            modifier = Modifier.padding(bottom = 8.dp), // 하단 여백
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF800020)),
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text("닫기")
+                        }
                     }
                 }
             }
