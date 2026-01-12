@@ -39,6 +39,12 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.filled.Star
+import com.example.mukeatlist.ui.common.BadgeDetailDialog
+import androidx.compose.foundation.clickable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import com.example.mukeatlist.ui.common.getCategoryIcon
 
 @OptIn(ExperimentalFoundationApi::class) // stickyHeader 사용을 위해 필수
 @Composable
@@ -47,9 +53,10 @@ fun MyPageScreen(paddingValues: PaddingValues) {
     val viewModel: MyPageViewModel = viewModel(
         factory = MyPageViewModelFactory(context)
     )
-
     val totalVisitedCount by viewModel.totalVisitedCount.collectAsState()
     val badges by viewModel.badges.collectAsState()
+    val activeBadgeCount = badges.count { it.isCompleted }
+    var selectedBadge by remember { mutableStateOf<BadgeUiState?>(null) }
 
     // [핵심 변경] Column 대신 LazyColumn 사용
     LazyColumn(
@@ -145,7 +152,7 @@ fun MyPageScreen(paddingValues: PaddingValues) {
                 color = MaterialTheme.colorScheme.background // 혹은 Color.White 등 배경색
             ) {
                 Text(
-                    text = "나의 뱃지",
+                    text = "나의 뱃지 (${activeBadgeCount})",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(vertical = 16.dp, horizontal = 4.dp)
@@ -157,7 +164,8 @@ fun MyPageScreen(paddingValues: PaddingValues) {
         // 3. 뱃지 그리드 리스트 (LazyColumn에서 Grid 흉내내기)
         // ==========================================
         // GridCells.Fixed(2)와 똑같은 효과를 내기 위해 데이터를 2개씩 묶습니다.
-        val rows = badges.chunked(2)
+        val sortedBadges = badges.sortedByDescending { it.isCompleted }
+        val rows = sortedBadges.chunked(2)
 
         items(rows) { rowBadges ->
             Row(
@@ -168,7 +176,11 @@ fun MyPageScreen(paddingValues: PaddingValues) {
             ) {
                 rowBadges.forEach { badge ->
                     // weight(1f)로 공간을 똑같이 나눔
-                    Box(modifier = Modifier.weight(1f)) {
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedBadge = badge }
+                    ) {
                         BadgeItem(badge = badge)
                     }
                 }
@@ -185,9 +197,13 @@ fun MyPageScreen(paddingValues: PaddingValues) {
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
+    if (selectedBadge != null) {
+        BadgeDetailDialog(
+            badge = selectedBadge!!, // null 아님을 보장
+            onDismiss = { selectedBadge = null } // 닫으면 다시 null로 만들어 숨김
+        )
+    }
 }
-
-// ▼▼▼ 하위 컴포넌트들은 변경 없음 (그대로 사용) ▼▼▼
 
 @Composable
 fun BadgeItem(badge: BadgeUiState) {
@@ -228,11 +244,14 @@ fun BadgeItem(badge: BadgeUiState) {
             ) {
                 Icon(
                     imageVector = if (isCompleted) {
-                        ImageVector.vectorResource(id = R.drawable.cook_icon)
-                    } else Icons.Filled.Lock,
+                        // ▼ 여기서 함수를 호출해서 카테고리에 맞는 아이콘을 가져옵니다.
+                        getCategoryIcon(badge.categoryId)
+                    } else {
+                        Icons.Filled.Lock
+                    },
                     contentDescription = null,
                     tint = if (isCompleted) activeIconColor else inactiveIconColor,
-                    modifier = Modifier.size(32.dp)
+                    modifier = Modifier.size(40.dp)
                 )
             }
             Spacer(modifier = Modifier.height(12.dp))

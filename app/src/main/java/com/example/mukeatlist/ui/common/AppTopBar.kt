@@ -17,7 +17,7 @@ fun AppTopBar() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(80.dp) // 헤더 높이 (원하는 만큼 조절)
+            .height(60.dp) // 헤더 높이 (원하는 만큼 조절)
     ) {
         Image(
             painter = painterResource(R.drawable.logo_mukeatlist),
