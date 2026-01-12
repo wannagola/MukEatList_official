@@ -70,6 +70,7 @@ fun RestaurantItem(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 2
                 )
+
             }
             
             IconButton(onClick = onVisitToggle) {
