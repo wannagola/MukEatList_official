@@ -15,7 +15,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+
 
     buildTypes {
         release {
@@ -87,4 +87,7 @@ dependencies {
 
     // Gson
     implementation("com.google.code.gson:gson:2.10.1")
-}
+
+    implementation("com.kakao.sdk:v2-common:2.23.2") // 공통 모듈
+    implementation("com.kakao.maps.open:android:2.12.8") // 지도 모듈
+}}
