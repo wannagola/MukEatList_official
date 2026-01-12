@@ -10,150 +10,302 @@
           "name": "에그앤플라워 해방촌",
           "categoryId": "blackwhitechef",
           "mainMenu": "홍새우 & 먹물 카펠리니",
-          "tags": ["김희은", "윤대현", "백수저", "생면파스타", "미슐랭"],
+          "tags": [
+            "김희은",
+            "윤대현",
+            "백수저",
+            "생면파스타",
+            "미슐랭"
+          ],
           "address": "서울 용산구 신흥로26길 35",
           "thumbnailUrl": "https://d12zq4w4guyljn.cloudfront.net/750_750_20220223055357_photo1_tjps25hym6tl.webp",
-          "photoUrls": ["https://blog.kakaocdn.net/dna/bXKCu2/btrRW01FF1U/AAAAAAAAAAAAAAAAAAAAAN6NIW8QDv2Uyi0j8e50J4LLCj5sxIm8WiaYYN7gTC6q/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1769871599&allow_ip=&allow_referer=&signature=fjGnNJgDjCZaoMyH7d7xX%2FMNyfU%3D","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUNMhHUy3ZT8lx_ONTbbBURxd6tGGgsxPzlA&s"]
+          "photoUrls": [
+            "https://blog.kakaocdn.net/dna/bXKCu2/btrRW01FF1U/AAAAAAAAAAAAAAAAAAAAAN6NIW8QDv2Uyi0j8e50J4LLCj5sxIm8WiaYYN7gTC6q/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1769871599&allow_ip=&allow_referer=&signature=fjGnNJgDjCZaoMyH7d7xX%2FMNyfU%3D",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUNMhHUy3ZT8lx_ONTbbBURxd6tGGgsxPzlA&s"
+          ],
+          "lat": 37.5453628880082,
+          "lng": 126.984383275318
         },
         {
           "id": "bw002",
           "name": "앰배서더 서울 풀만 호빈",
           "categoryId": "blackwhitechef",
           "mainMenu": "불도장, 북경오리",
-          "tags": ["후덕죽", "중식대가", "호텔다이닝", "보양식"],
+          "tags": [
+            "후덕죽",
+            "중식대가",
+            "호텔다이닝",
+            "보양식"
+          ],
           "address": "서울 중구 동호로 287",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-nrp6FyBNAGaEqyDEHEsat_7sTuWC2UO29Q&s",
-          "photoUrls": ["https://ugc-images.catchtable.co.kr/shop/manager/images/711f1240bee7465d93193645e343298c?details500","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeF6DvOJL6KTysE4PSjao3CyG5uM1IDnVAHQ&s"]
+          "photoUrls": [
+            "https://ugc-images.catchtable.co.kr/shop/manager/images/711f1240bee7465d93193645e343298c?details500",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeF6DvOJL6KTysE4PSjao3CyG5uM1IDnVAHQ&s"
+          ],
+          "lat": 37.5605989670195,
+          "lng": 127.002135954676
         },
         {
           "id": "bw003",
           "name": "라망시크레",
           "categoryId": "blackwhitechef",
           "mainMenu": "컨템포러리 코스",
-          "tags": ["손종원", "백수저", "미슐랭", "호텔레스토랑"],
+          "tags": [
+            "손종원",
+            "백수저",
+            "미슐랭",
+            "호텔레스토랑"
+          ],
           "address": "서울 중구 퇴계로 67 레스케이프호텔",
           "thumbnailUrl": "https://newsimg.sedaily.com/2019/08/29/1VN5QFLPT7_2.jpg",
-          "photoUrls": ["https://the-edit.co.kr/wp-content/uploads/2023/11/20230626_200723-1-816x1024.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1TkH3S912itBT8tRfsLgSX0Z1ONV2QNYnkg&s"]
+          "photoUrls": [
+            "https://the-edit.co.kr/wp-content/uploads/2023/11/20230626_200723-1-816x1024.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1TkH3S912itBT8tRfsLgSX0Z1ONV2QNYnkg&s"
+          ],
+          "lat": 37.5597323437561,
+          "lng": 126.979523390315
         },
         {
           "id": "bw004",
           "name": "윤주당",
           "categoryId": "blackwhitechef",
           "mainMenu": "윤주당 탁주, 꼬꼬뱅",
-          "tags": ["술빚는윤주모", "흑수저", "전통주", "해방촌"],
+          "tags": [
+            "술빚는윤주모",
+            "흑수저",
+            "전통주",
+            "해방촌"
+          ],
           "address": "서울 용산구 신흥로 81-1",
           "thumbnailUrl": "https://www.lampcook.com/wi_files/food_story/pub_story/story6_2_0.jpg",
-          "photoUrls": ["https://www.lampcook.com/wi_files/food_story/pub_story/story6_2_2.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMZot_S9Oy66eoWfrK7VslpAQGY7MI7YPFQ&s"]
+          "photoUrls": [
+            "https://www.lampcook.com/wi_files/food_story/pub_story/story6_2_2.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMZot_S9Oy66eoWfrK7VslpAQGY7MI7YPFQ&s"
+          ],
+          "lat": 37.5453534474955,
+          "lng": 126.98597835382
         },
         {
           "id": "bw005",
           "name": "이타닉 가든",
           "categoryId": "blackwhitechef",
           "mainMenu": "이타닉 가든 코스",
-          "tags": ["손종원", "백수저", "미슐랭", "조선팰리스"],
+          "tags": [
+            "손종원",
+            "백수저",
+            "미슐랭",
+            "조선팰리스"
+          ],
           "address": "서울 강남구 테헤란로 231 조선팰리스",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTQ6Zfw9ShReRG9r1Ye02Wr-HzoprknACoA&s",
-          "photoUrls": ["https://mblogthumb-phinf.pstatic.net/MjAyNDAzMjhfNzMg/MDAxNzExNTgwODU5MDk3.C3eLSHfmln1uN6jkrORd6vMCS_p1z6qDzxCJz_rnKWcg.Z1Cp4XM_Z6s6T8p78uEptHgiUXQTKvoYpGrY3UCzH_8g.JPEG/K-20240328-292443.jpg?type=w800","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROsu4DJCOfhSeuduhJVIUk6LhvrIldpi_HlA&s"]
+          "photoUrls": [
+            "https://mblogthumb-phinf.pstatic.net/MjAyNDAzMjhfNzMg/MDAxNzExNTgwODU5MDk3.C3eLSHfmln1uN6jkrORd6vMCS_p1z6qDzxCJz_rnKWcg.Z1Cp4XM_Z6s6T8p78uEptHgiUXQTKvoYpGrY3UCzH_8g.JPEG/K-20240328-292443.jpg?type=w800",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROsu4DJCOfhSeuduhJVIUk6LhvrIldpi_HlA&s"
+          ],
+          "lat": 37.5028813541774,
+          "lng": 127.041356540268
         },
         {
           "id": "bw006",
           "name": "소울(SOUL)",
           "categoryId": "blackwhitechef",
           "mainMenu": "감자전 뇨끼, 한우 채끝",
-          "tags": ["윤대현", "김희은", "백수저", "미슐랭", "한식파인다이닝"],
+          "tags": [
+            "윤대현",
+            "김희은",
+            "백수저",
+            "미슐랭",
+            "한식파인다이닝"
+          ],
           "address": "서울 용산구 신흥로26길 35",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MTVfMjAy/MDAxNzE1NzY1Mzk0ODE3.Xp2zoxVzAC--Wxsa5p6GXkePALnEigeNV-5EM9TGsoog.aJY2F0GLHfVQEWEDV5Gphc6ThMxar4K-JBwpBbCyiwwg.JPEG/IMG_8163.JPG?type=w800",
-          "photoUrls": ["https://ugc-images.catchtable.co.kr/catchtable/shopinfo/sw0AwnVhMD3Oi0W1a8S_UjQ/dd6ca279bf414c83a00b3d2101973b25?details500","https://d12zq4w4guyljn.cloudfront.net/750_750_20250423010627_photo9_c1ed86d1324a.webp"]
+          "photoUrls": [
+            "https://ugc-images.catchtable.co.kr/catchtable/shopinfo/sw0AwnVhMD3Oi0W1a8S_UjQ/dd6ca279bf414c83a00b3d2101973b25?details500",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250423010627_photo9_c1ed86d1324a.webp"
+          ],
+          "lat": 37.5453628880082,
+          "lng": 126.984383275318
         },
         {
           "id": "bw007",
           "name": "오스테리아 샘킴",
           "categoryId": "blackwhitechef",
           "mainMenu": "멜란자네, 소꼬리 라구",
-          "tags": ["샘킴", "스타셰프", "이탈리안", "합정맛집"],
+          "tags": [
+            "샘킴",
+            "스타셰프",
+            "이탈리안",
+            "합정맛집"
+          ],
           "address": "서울 마포구 양화로3길 55",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC6XVqTirYu5vbKyjOmgp5LGwvMzNiKIl44w&s",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJBAU5ebii54_JLgYBkB1y88VaGheDZfo1oA&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuIWOThYea7RdYV6fv5SE8BuD5tV2NSCWV9A&s"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJBAU5ebii54_JLgYBkB1y88VaGheDZfo1oA&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuIWOThYea7RdYV6fv5SE8BuD5tV2NSCWV9A&s"
+          ],
+          "lat": 37.5513124897941,
+          "lng": 126.910906828256
         },
         {
           "id": "bw008",
           "name": "뜨라또리아 샘킴",
           "categoryId": "blackwhitechef",
           "mainMenu": "트러플 리조또",
-          "tags": ["샘킴", "스타셰프", "파스타", "신사동"],
+          "tags": [
+            "샘킴",
+            "스타셰프",
+            "파스타",
+            "신사동"
+          ],
           "address": "서울 강남구 도산대로49길 10-3",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9AzmXaTYUy9Cm-zo7qU63wivwV5tLgKtiA&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20220209115748_photo1_a8ba209dff91.webp","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9IcedfTw62eQksoK5qWSf74RmarpDrcR5ng&s"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20220209115748_photo1_a8ba209dff91.webp",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9IcedfTw62eQksoK5qWSf74RmarpDrcR5ng&s"
+          ],
+          "lat": 37.5238090344097,
+          "lng": 127.037677142475
         },
         {
           "id": "bw009",
           "name": "코자차",
           "categoryId": "blackwhitechef",
           "mainMenu": "아시안 퓨전 코스",
-          "tags": ["최유강", "백수저", "미슐랭", "신라호텔출신"],
+          "tags": [
+            "최유강",
+            "백수저",
+            "미슐랭",
+            "신라호텔출신"
+          ],
           "address": "서울 강남구 도산대로81길 51",
           "thumbnailUrl": "https://pimg.mk.co.kr/meet/neds/2022/04/image_readtop_2022_271751_16488060744986847.jpg",
-          "photoUrls": ["https://pimg.mk.co.kr/meet/neds/2022/04/image_readtop_2022_271751_16488060744986847.jpg","https://www.lampcook.com/book_recipe/michelin_imgs/michelin_story/story1_97_1.jpg"]
+          "photoUrls": [
+            "https://pimg.mk.co.kr/meet/neds/2022/04/image_readtop_2022_271751_16488060744986847.jpg",
+            "https://www.lampcook.com/book_recipe/michelin_imgs/michelin_story/story1_97_1.jpg"
+          ],
+          "lat": 37.5270817723976,
+          "lng": 127.045760717091
         },
         {
           "id": "bw010",
           "name": "콩두 명동",
           "categoryId": "blackwhitechef",
           "mainMenu": "모던 한식 코스",
-          "tags": ["박효남", "총괄셰프", "한식다이닝", "상견례"],
+          "tags": [
+            "박효남",
+            "총괄셰프",
+            "한식다이닝",
+            "상견례"
+          ],
           "address": "서울 중구 삼청로 129",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyNTAxMDJfMzYg/MDAxNzM1NzczNTUzOTcy.MI7xJ1oSSaRSUZcrao2cFPwlUpRo75AIAv9WUxaN3GEg.ZPlcCD-rIk5aZrkqD39YRZMMARWlYsxluLH9f7Kt0JIg.JPEG/900%EF%BC%BF20241231%EF%BC%BF111516.jpg?type=w800",
-          "photoUrls": ["https://congdu.co.kr/wp-content/uploads/2024/11/%EB%89%B4%EC%8A%A4_%EB%AA%85%EB%8F%99%EC%98%A4%ED%94%88.jpg","https://mblogthumb-phinf.pstatic.net/MjAyNTA4MTJfNDgg/MDAxNzU0OTgyNzY1MDg0.1XvoYICjxP3oyIHwPsksizsXwDfyVLZK6YNuT7B_QK8g.jyfwdPiYmdz-4qoqR5nHuavUKDAju-6FDjo9xeQSyJ4g.JPEG/%EB%AA%85%EB%8F%99%EB%8D%B0%EC%9D%B4%ED%8A%B8%EB%A7%9B%EC%A7%91_03.jpg?type=w800"]
+          "photoUrls": [
+            "https://congdu.co.kr/wp-content/uploads/2024/11/%EB%89%B4%EC%8A%A4_%EB%AA%85%EB%8F%99%EC%98%A4%ED%94%88.jpg",
+            "https://mblogthumb-phinf.pstatic.net/MjAyNTA4MTJfNDgg/MDAxNzU0OTgyNzY1MDg0.1XvoYICjxP3oyIHwPsksizsXwDfyVLZK6YNuT7B_QK8g.jyfwdPiYmdz-4qoqR5nHuavUKDAju-6FDjo9xeQSyJ4g.JPEG/%EB%AA%85%EB%8F%99%EB%8D%B0%EC%9D%B4%ED%8A%B8%EB%A7%9B%EC%A7%91_03.jpg?type=w800"
+          ],
+          "lat": null,
+          "lng": null
         },
         {
           "id": "bw011",
           "name": "테이블포포",
           "categoryId": "blackwhitechef",
           "mainMenu": "해산물 파스타, 태안 로컬푸드",
-          "tags": ["김성운", "백수저", "미슐랭", "서래마을"],
+          "tags": [
+            "김성운",
+            "백수저",
+            "미슐랭",
+            "서래마을"
+          ],
           "address": "서울 서초구 사평대로14길 11",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6bJRbtxYFBpDtKs1WFlYTRA0d4vZamzlblw&s",
-          "photoUrls": ["https://img.siksinhot.com/place/1675996210136273.jpg","https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjZfNDkg/MDAxNzI5OTEwMjYxMTE3.vuw2PWiXjGW3kXOYD5-RXlk6jMbuuT3TeeGdweIMI3Eg.1440S9zRUBSYT5egmQ-zU7zMhs_E4rIs9YVH06WnXHQg.JPEG/L1000026.jpg?type=w800"]
+          "photoUrls": [
+            "https://img.siksinhot.com/place/1675996210136273.jpg",
+            "https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjZfNDkg/MDAxNzI5OTEwMjYxMTE3.vuw2PWiXjGW3kXOYD5-RXlk6jMbuuT3TeeGdweIMI3Eg.1440S9zRUBSYT5egmQ-zU7zMhs_E4rIs9YVH06WnXHQg.JPEG/L1000026.jpg?type=w800"
+          ],
+          "lat": 37.4977352485924,
+          "lng": 126.994441473718
         },
         {
           "id": "bw012",
           "name": "뽀모 (Pomo)",
           "categoryId": "blackwhitechef",
           "mainMenu": "이탈리안 가정식",
-          "tags": ["어윤권", "미슐랭셰프", "자연주의", "간편식다이닝"],
+          "tags": [
+            "어윤권",
+            "미슐랭셰프",
+            "자연주의",
+            "간편식다이닝"
+          ],
           "address": "서울 강남구 선릉로 334",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM45q145l95BTk_Zw6aKwJbUMgc58p9J1-ww&s",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTRyGLz634ABMvUyLbMVc2UDWcL07-sAWY9w&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-CCZtxl6Gm0odHj51eZWGt0YE3kXFWA097Q&s"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTRyGLz634ABMvUyLbMVc2UDWcL07-sAWY9w&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-CCZtxl6Gm0odHj51eZWGt0YE3kXFWA097Q&s"
+          ],
+          "lat": 37.499587377249,
+          "lng": 127.051631798516
         },
         {
           "id": "bw013",
           "name": "카덴 (이자카야)",
           "categoryId": "blackwhitechef",
           "mainMenu": "모듬 사시미, 옥돔구이",
-          "tags": ["정호영", "백수저", "이자카야", "연희동"],
+          "tags": [
+            "정호영",
+            "백수저",
+            "이자카야",
+            "연희동"
+          ],
           "address": "서울 서대문구 연희로 173",
           "thumbnailUrl": "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99AEDA485B40E1D12E",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_uToyjf5KMhivCdtGtBtULr2t4AuEmpMZrQ&s","https://mblogthumb-phinf.pstatic.net/MjAyNTA2MjlfMTA5/MDAxNzUxMTk3MjM0Nzcx.S_FYjRY5hUzOWOOIRT171yxTwRB8Z27a8kCHYh0Cx3Yg.rP4Mw3wY0L84PJuWBaMjgmCXTRLaRBtHl2F0x5MSyL8g.JPEG/3.jpg?type=w800"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_uToyjf5KMhivCdtGtBtULr2t4AuEmpMZrQ&s",
+            "https://mblogthumb-phinf.pstatic.net/MjAyNTA2MjlfMTA5/MDAxNzUxMTk3MjM0Nzcx.S_FYjRY5hUzOWOOIRT171yxTwRB8Z27a8kCHYh0Cx3Yg.rP4Mw3wY0L84PJuWBaMjgmCXTRLaRBtHl2F0x5MSyL8g.JPEG/3.jpg?type=w800"
+          ],
+          "lat": 37.5724988690741,
+          "lng": 126.935060703737
         },
         {
           "id": "bw014",
           "name": "천상현의 천상",
           "categoryId": "blackwhitechef",
           "mainMenu": "천상 자장면, 짬뽕",
-          "tags": ["천상현", "백수저", "청와대셰프", "중식"],
+          "tags": [
+            "천상현",
+            "백수저",
+            "청와대셰프",
+            "중식"
+          ],
           "address": "서울 서초구 매헌로 16",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpTdwhFdE71AUyZfTK1Z_98RyaYaMbPDwY8w&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20230829083921855_photo_7ec14122f00b.webp","https://d12zq4w4guyljn.cloudfront.net/750_750_20230829083922144_photo_7ec14122f00b.webp"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20230829083921855_photo_7ec14122f00b.webp",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20230829083922144_photo_7ec14122f00b.webp"
+          ],
+          "lat": 37.462467348157,
+          "lng": 127.036947909974
         },
         {
           "id": "bw015",
           "name": "우동카덴 (서교/제주)",
           "categoryId": "blackwhitechef",
           "mainMenu": "붓카케 우동",
-          "tags": ["정호영", "백수저", "우동맛집", "합정/제주"],
+          "tags": [
+            "정호영",
+            "백수저",
+            "우동맛집",
+            "합정/제주"
+          ],
           "address": "서울 마포구 양화로7길 7",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyMzA3MjVfMTgg/MDAxNjkwMjY1ODgyMTUw.-obbwvoEryGiK1Fb_t8TycvYDhRXJn23qqnX8tzkXV4g.dcZ4TAWNZckhX5n69NxfCWs43517efZAWEKiA6E0D2Mg.JPEG.hyeak2/%EC%9A%B0%EB%8F%99%EC%B9%B4%EB%8D%B4.jpg?type=w800",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2F1IDrWj-x3MwFV8Y0SDbs0t2wwfwG7e0g&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXHViT3FlZtpzxQ83qy_rHbbl539CPMxkb6w&s"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD2F1IDrWj-x3MwFV8Y0SDbs0t2wwfwG7e0g&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXHViT3FlZtpzxQ83qy_rHbbl539CPMxkb6w&s"
+          ],
+          "lat": null,
+          "lng": null
         }
       ]
     },
@@ -167,153 +319,298 @@
           "name": "막장집",
           "categoryId": "tzuyang",
           "mainMenu": "돌문어 & 꼬마김밥",
-          "tags": ["레트로", "해산물", "초장맛집", "선화동"],
+          "tags": [
+            "레트로",
+            "해산물",
+            "초장맛집",
+            "선화동"
+          ],
           "address": "대전 중구 선화서로 48-1 1층",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKv4N_LhNp-Ql1wqgIGer8psxe-bBcmIqnyw&s",
           "photoUrls": [
             "https://d12zq4w4guyljn.cloudfront.net/750_750_20250218013054_photo2_MA8nQeF15NoI.webp",
             "https://d12zq4w4guyljn.cloudfront.net/750_750_20240510061738962_photo_51441555bb1a.webp"
-          ]
+          ],
+          "lat": 36.3280874807321,
+          "lng": 127.418117549439
         },
         {
           "id": "tzu002",
           "name": "대동순대",
           "categoryId": "tzuyang",
           "mainMenu": "막창순대",
-          "tags": ["수제순대", "순대국밥", "쫄깃한식감", "문화동"],
+          "tags": [
+            "수제순대",
+            "순대국밥",
+            "쫄깃한식감",
+            "문화동"
+          ],
           "address": "대전 중구 서문로43번길 70",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV_6Hi5iw14q6luaeQhtrk76CyNEnuAIW0QA&s",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPuvjj7H9JbnXQ-wWcmjWgWXKv8rKiVCPC0g&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyDUVMNWoqrca-cAtI0S1ie-k4Bu04PCv4dQ&s"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPuvjj7H9JbnXQ-wWcmjWgWXKv8rKiVCPC0g&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyDUVMNWoqrca-cAtI0S1ie-k4Bu04PCv4dQ&s"
+          ],
+          "lat": 36.3138712934196,
+          "lng": 127.405006933144
         },
         {
           "id": "tzu003",
           "name": "선화동실비식당",
           "categoryId": "tzuyang",
           "mainMenu": "소머리국밥 & 매운김치",
-          "tags": ["실비김치", "매운맛챌린지", "원조맛집", "선화동"],
+          "tags": [
+            "실비김치",
+            "매운맛챌린지",
+            "원조맛집",
+            "선화동"
+          ],
           "address": "대전 중구 선화로 126-10",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk07_DyEvDK6_9VMrG_JnqCbqvZ_XNTETZ2Q&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20250526115019_menu1_7695e5a5c21a.webp","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0C84l5RF57hejANYevY3OOyiw0DgRcQ8f_A&s"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250526115019_menu1_7695e5a5c21a.webp",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0C84l5RF57hejANYevY3OOyiw0DgRcQ8f_A&s"
+          ],
+          "lat": 36.3303372432537,
+          "lng": 127.421000145211
         },
         {
           "id": "tzu004",
           "name": "희망휴게실",
           "categoryId": "tzuyang",
           "mainMenu": "떡볶이 & 비빔국수",
-          "tags": ["신탄진", "노포분식", "콩국수", "석봉동"],
+          "tags": [
+            "신탄진",
+            "노포분식",
+            "콩국수",
+            "석봉동"
+          ],
           "address": "대전 대덕구 석봉북로 22",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDJfMTAx/MDAxNjQxMTEyMDQ3MTc0.e0zzD1N6f4nL41kZs09MPLrPS1ulx7x3qDv33wDz8icg.FBVagHtlpRLXONoS6xWS5FSbiy18VSjbTnKiuWqY6w8g.JPEG.michelinguide_twodam/%EB%8C%80%EC%A0%84_%EC%8B%A0%ED%83%84%EC%A7%84_%EB%A7%9B%EC%A7%91_(1).jpg?type=w800",
-          "photoUrls": ["https://i.ytimg.com/vi/HRqiND6h_BE/maxresdefault.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEC9cP30WzQdivVuUJwjs11EVFNBOByq-5pQ&s"]
+          "photoUrls": [
+            "https://i.ytimg.com/vi/HRqiND6h_BE/maxresdefault.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEC9cP30WzQdivVuUJwjs11EVFNBOByq-5pQ&s"
+          ],
+          "lat": 36.4492258033451,
+          "lng": 127.425085820592
         },
         {
           "id": "tzu005",
           "name": "에이스분식",
           "categoryId": "tzuyang",
           "mainMenu": "떡볶이 & 튀김",
-          "tags": ["중앙시장", "시장맛집", "가성비", "대전역근처"],
+          "tags": [
+            "중앙시장",
+            "시장맛집",
+            "가성비",
+            "대전역근처"
+          ],
           "address": "대전 동구 대전로785번길 50",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyMzAyMDNfNTQg/MDAxNjc1NDAzMTEzMDU3.K8w0SUTWxmvu3AEaEHeqdoijm-YTPeThq1SqjFIN6oQg.sS8T8SAVbDgABtXlYuElVUrCWUuopqfR-CF1d74fO2kg.JPEG.chqha57/1675403112872.jpg?type=w800",
-          "photoUrls": ["https://mblogthumb-phinf.pstatic.net/MjAyNDA4MTdfMjQg/MDAxNzIzODY5MTc5Mjc2.2DuBHd9EZ_EM0RxFcdv6k996qQLnTiQ5QRdZOQc3-R8g.Nzv4BiJCdDzq2CIRvunWljXfhb4Q_7PPepMp68sKj_gg.JPEG/output_1109012291.jpg?type=w800","https://d12zq4w4guyljn.cloudfront.net/750_750_20251124070420_photo1_1dab8da80e86.webp"]
+          "photoUrls": [
+            "https://mblogthumb-phinf.pstatic.net/MjAyNDA4MTdfMjQg/MDAxNzIzODY5MTc5Mjc2.2DuBHd9EZ_EM0RxFcdv6k996qQLnTiQ5QRdZOQc3-R8g.Nzv4BiJCdDzq2CIRvunWljXfhb4Q_7PPepMp68sKj_gg.JPEG/output_1109012291.jpg?type=w800",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20251124070420_photo1_1dab8da80e86.webp"
+          ],
+          "lat": 36.3289735254744,
+          "lng": 127.430803533234
         },
         {
           "id": "tzu006",
           "name": "미진",
           "categoryId": "tzuyang",
           "mainMenu": "메밀국수 & 유부초밥",
-          "tags": ["생활의달인", "메밀소바", "튀김맛집", "둔산동"],
+          "tags": [
+            "생활의달인",
+            "메밀소바",
+            "튀김맛집",
+            "둔산동"
+          ],
           "address": "대전 서구 둔산중로40번길 28",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7q2j6SrTd6ecnG1qyg4YufpZO4KglbwNyHQ&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20251011124003_photo1_ce10ccd7a778.webp","https://mblogthumb-phinf.pstatic.net/MjAxNzA1MDNfMzAw/MDAxNDkzNzg0NzMzMzAy.lKpkNFPiRimzQ5nCWdCdcgW9xlMlq1G7b2PCPjbjck4g.5ye1Q36gzuvUigEnUrHNX6HVTMwmgqcH-y38lC34qagg.JPEG.ki__chin/IMG_8936.jpg?type=w800"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20251011124003_photo1_ce10ccd7a778.webp",
+            "https://mblogthumb-phinf.pstatic.net/MjAxNzA1MDNfMzAw/MDAxNDkzNzg0NzMzMzAy.lKpkNFPiRimzQ5nCWdCdcgW9xlMlq1G7b2PCPjbjck4g.5ye1Q36gzuvUigEnUrHNX6HVTMwmgqcH-y38lC34qagg.JPEG.ki__chin/IMG_8936.jpg?type=w800"
+          ],
+          "lat": 36.3499705239744,
+          "lng": 127.388262814205
         },
         {
           "id": "tzu007",
           "name": "라면타임",
           "categoryId": "tzuyang",
           "mainMenu": "치즈라면 & 짬뽕라면",
-          "tags": ["서대전역", "24시분식", "라볶이", "오류동"],
+          "tags": [
+            "서대전역",
+            "24시분식",
+            "라볶이",
+            "오류동"
+          ],
           "address": "대전 중구 계백로1685번길 45 1층",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrWmDTFt9BxGScAtc08qyUb2IzGrSHahueQ&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20250430102417_menu1_8819a7b49fdf.webp","https://d12zq4w4guyljn.cloudfront.net/750_750_20250430102417_photo1_8819a7b49fdf.webp"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250430102417_menu1_8819a7b49fdf.webp",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250430102417_photo1_8819a7b49fdf.webp"
+          ],
+          "lat": 36.322598209412,
+          "lng": 127.405196411045
         },
         {
           "id": "tzu008",
           "name": "조기종의 향미각",
           "categoryId": "tzuyang",
           "mainMenu": "꼬막짬뽕",
-          "tags": ["산더미꼬막", "얼큰한국물", "웨이팅맛집", "중리동"],
+          "tags": [
+            "산더미꼬막",
+            "얼큰한국물",
+            "웨이팅맛집",
+            "중리동"
+          ],
           "address": "대전 대덕구 쌍청당로 14 2층",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAyNTA5MTlfMTA1/MDAxNzU4MjM5NzY4MDE0.ELOWqr1vlLtcKN8sw9qsJIExJXZcW_ibQ9U2rrdYPfIg.uAOVJ_ryTCP2p6rIZUGYsOe1t0HWCHipZ6DLLq7toBsg.JPEG/%EC%A1%B0%EA%B8%B0%EC%A2%85%EC%9D%98%ED%96%A5%EB%AF%B8%EA%B0%811.jpg?type=w800",
-          "photoUrls": ["https://image.greating.co.kr/IL/item/202111/25/A67568AFCA0A4EF59DE592E0EDA182E5.jpg","https://d12zq4w4guyljn.cloudfront.net/750_750_20250630093927018_photo_75d97bd9c539.webp"]
+          "photoUrls": [
+            "https://image.greating.co.kr/IL/item/202111/25/A67568AFCA0A4EF59DE592E0EDA182E5.jpg",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250630093927018_photo_75d97bd9c539.webp"
+          ],
+          "lat": 36.3632732359855,
+          "lng": 127.435317572544
         },
         {
           "id": "tzu009",
           "name": "대선칼국수",
           "categoryId": "tzuyang",
           "mainMenu": "칼국수 & 오징어두부두루치기",
-          "tags": ["대전명물", "60년전통", "수육", "둔산동"],
+          "tags": [
+            "대전명물",
+            "60년전통",
+            "수육",
+            "둔산동"
+          ],
           "address": "대전 서구 둔산중로40번길 28 2층",
           "thumbnailUrl": "https://mblogthumb-phinf.pstatic.net/MjAxOTA2MTRfMTYw/MDAxNTYwNDkwNDE3Mjcy.8MPMS3n0jxOSQA3FKZky_izAH4EOP0vMz0LU5BBBVZYg.oWPhZhw4IE57u1yBjc30GrqzG3byRTWbpo3RvMb6MhMg.JPEG.g0heaven/1_%EB%A9%94%EC%9D%B8_3_%EB%8C%80%EC%84%A0%EC%B9%BC%EA%B5%AD%EC%88%98_1.jpg?type=w800",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20250106112642_photo1_a40be41a0b3c.webp","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSquhSCs4QMF7yuSv4N_4HZpS8HmnEgsAij2g&s"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250106112642_photo1_a40be41a0b3c.webp",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSquhSCs4QMF7yuSv4N_4HZpS8HmnEgsAij2g&s"
+          ],
+          "lat": 36.3499705239744,
+          "lng": 127.388262814205
         },
         {
           "id": "tzu010",
           "name": "스마일칼국수",
           "categoryId": "tzuyang",
           "mainMenu": "손칼국수 & 김밥",
-          "tags": ["백종원3대천왕", "들깨칼국수", "대흥동"],
+          "tags": [
+            "백종원3대천왕",
+            "들깨칼국수",
+            "대흥동"
+          ],
           "address": "대전 중구 보문로230번길 82",
           "thumbnailUrl": "https://polle-image.tabling.co.kr/posts/BU5Y8w3ZFFCxvYS6u6Sl9w.jpg",
-          "photoUrls": ["https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201901/25/72b62e7b-957f-4e6e-9318-ace0f3002ef8.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNhc3X3MjdCPlMNRGDKgOxWJb1TNEifQct8w&s"]
+          "photoUrls": [
+            "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201901/25/72b62e7b-957f-4e6e-9318-ace0f3002ef8.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNhc3X3MjdCPlMNRGDKgOxWJb1TNEifQct8w&s"
+          ],
+          "lat": 36.3244460263781,
+          "lng": 127.427158869212
         },
         {
           "id": "tzu011",
           "name": "오씨칼국수",
           "categoryId": "tzuyang",
           "mainMenu": "물총칼국수",
-          "tags": ["동죽조개", "물총탕", "해장", "삼성동"],
+          "tags": [
+            "동죽조개",
+            "물총탕",
+            "해장",
+            "삼성동"
+          ],
           "address": "대전 동구 옛신탄진로 13",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvMmkZdFGGNJuE1K8FTC81O5dYI7I1DNxXIQ&s",
-          "photoUrls": ["https://mblogthumb-phinf.pstatic.net/MjAyMjA3MTNfMjkz/MDAxNjU3NzE0MDgxMDU2.-QXhDDIrtuAfktzCymtWMaNQgEeLyCGuc2BL4fGpKpog.yi8Sf3O60Y4gqGJCIzB1zONzfM7D7cFLe2VPR1Wy_Usg.JPEG.o__onica/SE-5A0A3754-4950-4BA3-8D89-FAE390A11866.jpg?type=w800","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLs8nByInkCsUpY5bB7y7sA5u3dS6oRszdzw&s"]
+          "photoUrls": [
+            "https://mblogthumb-phinf.pstatic.net/MjAyMjA3MTNfMjkz/MDAxNjU3NzE0MDgxMDU2.-QXhDDIrtuAfktzCymtWMaNQgEeLyCGuc2BL4fGpKpog.yi8Sf3O60Y4gqGJCIzB1zONzfM7D7cFLe2VPR1Wy_Usg.JPEG.o__onica/SE-5A0A3754-4950-4BA3-8D89-FAE390A11866.jpg?type=w800",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLs8nByInkCsUpY5bB7y7sA5u3dS6oRszdzw&s"
+          ],
+          "lat": 36.3419982459788,
+          "lng": 127.425082237254
         },
         {
           "id": "tzu012",
           "name": "태평소국밥",
           "categoryId": "tzuyang",
           "mainMenu": "소국밥 & 육사시미",
-          "tags": ["대전필수코스", "가성비", "24시", "태평동"],
+          "tags": [
+            "대전필수코스",
+            "가성비",
+            "24시",
+            "태평동"
+          ],
           "address": "대전 중구 태평로 116",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0AWRQkWNPaw2edpVP7wpU5NTXMCGxPaW-9g&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20250701094917_photo2_b161f46fe9d3.webp","https://d12zq4w4guyljn.cloudfront.net/750_750_20251229014545_photo1_206c478a2698.webp"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20250701094917_photo2_b161f46fe9d3.webp",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20251229014545_photo1_206c478a2698.webp"
+          ],
+          "lat": 36.32676534828,
+          "lng": 127.395482925096
         },
         {
           "id": "tzu013",
           "name": "유성주먹구이",
           "categoryId": "tzuyang",
           "mainMenu": "주먹구이 & 삼겹살",
-          "tags": ["고기맛집", "유성온천", "봉명동"],
+          "tags": [
+            "고기맛집",
+            "유성온천",
+            "봉명동"
+          ],
           "address": "대전 유성구 문화원로 83",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTounfTGXxHz2Ks4ig-P7o810Ayqm-wmurAUg&s",
-          "photoUrls": ["https://d12zq4w4guyljn.cloudfront.net/750_750_20241115121205_photo2_c5fe16e9d1be.webp","https://d12zq4w4guyljn.cloudfront.net/750_750_20241115145627_menu1_8f0bf6e1c6c1.webp"]
+          "photoUrls": [
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20241115121205_photo2_c5fe16e9d1be.webp",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20241115145627_menu1_8f0bf6e1c6c1.webp"
+          ],
+          "lat": 36.359448822071,
+          "lng": 127.344995269092
         },
         {
           "id": "tzu014",
           "name": "바로그집",
           "categoryId": "tzuyang",
           "mainMenu": "아이스크림 떡볶이",
-          "tags": ["마요네즈떡볶이", "지하상가", "꾸덕한소스", "은행동"],
+          "tags": [
+            "마요네즈떡볶이",
+            "지하상가",
+            "꾸덕한소스",
+            "은행동"
+          ],
           "address": "대전 중구 중앙로 145 지하상가 C나 61호",
           "thumbnailUrl": "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/flI9/image/CpYqdBQn6Dspy6EZly728DoMs3k.jpg",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNAfUMjcw5un_cnIaGae97w412YFp5Qi1O1w&s","https://d12zq4w4guyljn.cloudfront.net/750_750_20240401113234_photo1_33d78ebb26c1.webp"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNAfUMjcw5un_cnIaGae97w412YFp5Qi1O1w&s",
+            "https://d12zq4w4guyljn.cloudfront.net/750_750_20240401113234_photo1_33d78ebb26c1.webp"
+          ],
+          "lat": 36.3280376363476,
+          "lng": 127.424130901778
         },
         {
           "id": "tzu015",
           "name": "유성 5일장",
           "categoryId": "tzuyang",
           "mainMenu": "보리밥 & 묵국수",
-          "tags": ["장날맛집", "시장투어", "꽈배기", "유성구"],
+          "tags": [
+            "장날맛집",
+            "시장투어",
+            "꽈배기",
+            "유성구"
+          ],
           "address": "대전 유성구 유성대로730번길 24",
           "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlU6XCKHlpcPKlWitk4SQjlQ5B8Rz7zVA3mA&s",
-          "photoUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9SO95DfBzATpUwNxdLSoadHrAoyiln8I4A&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9SO95DfBzATpUwNxdLSoadHrAoyiln8I4A&s"]
+          "photoUrls": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9SO95DfBzATpUwNxdLSoadHrAoyiln8I4A&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp9SO95DfBzATpUwNxdLSoadHrAoyiln8I4A&s"
+          ],
+          "lat": 36.3577767906695,
+          "lng": 127.333921782928
         }
       ]
     },
@@ -332,7 +629,9 @@
           ],
           "address": "강남구 논현로 136길 11, 아난티 앳 강남 2층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/0a4cb8f7a3ce41b387875438b8a54652.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5162242501301,
+          "lng": 127.031037264311
         },
         {
           "id": "mc002",
@@ -344,7 +643,9 @@
           ],
           "address": "강남구 선릉로 158길 13-12, 3층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/b97275a9d0ae4930a86ebf6f2054916d.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5261419852792,
+          "lng": 127.041483638144
         },
         {
           "id": "mc003",
@@ -356,7 +657,9 @@
           ],
           "address": "강남구 언주로 168길 6, 지하1층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/71453e26b4344e80ae150533e1672ec9.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5263562252256,
+          "lng": 127.033920491416
         },
         {
           "id": "mc004",
@@ -368,7 +671,9 @@
           ],
           "address": "수영구 수영로 582번길 10 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/d731817eb0e74e62b57d3669adea3016.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1574319393608,
+          "lng": 129.113586571518
         },
         {
           "id": "mc005",
@@ -380,7 +685,9 @@
           ],
           "address": "중구 구덕로 22번길 3 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/d41be83695ac4ef78409ff209414635c.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.0979298260782,
+          "lng": 129.033149370473
         },
         {
           "id": "mc006",
@@ -392,7 +699,9 @@
           ],
           "address": "수영구 민락로 19번길 18 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/3e953e7c4949462196becd3a2ed0825c.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1565517577911,
+          "lng": 129.121437381425
         },
         {
           "id": "mc007",
@@ -404,7 +713,9 @@
           ],
           "address": "수영구 민락본동로 31번길 46 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/bed29679aa954df1b0edadb9b368a57b.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1589242224756,
+          "lng": 129.125964146081
         },
         {
           "id": "mc008",
@@ -416,7 +727,9 @@
           ],
           "address": "부산진구 동천로 108번길 41 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/10ce1199184b413794f605ad7fc4b2b7.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1583936320949,
+          "lng": 129.064433709707
         },
         {
           "id": "mc009",
@@ -428,7 +741,9 @@
           ],
           "address": "해운대구 달맞이길 65번길 88 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/f5d6b5ea90174dd9b92d6794b5bd384a.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1587357014737,
+          "lng": 129.175852509958
         },
         {
           "id": "mc010",
@@ -440,7 +755,9 @@
           ],
           "address": "서초구 반포대로 28길 56-3 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/1c14601bcb40457ab5c7b5de3a6c269a.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.491302882416,
+          "lng": 127.011591359711
         },
         {
           "id": "mc011",
@@ -452,7 +769,9 @@
           ],
           "address": "강남구 선릉로 157길 33, 3층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/7801dcd17d7d4b84abfef258fa906cde.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5262942863702,
+          "lng": 127.037052334832
         },
         {
           "id": "mc012",
@@ -464,7 +783,9 @@
           ],
           "address": "중구 퇴계로48길 17 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/d746f529d4bf47aab6c054bb20c9d87e.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5618174934699,
+          "lng": 127.000459409773
         },
         {
           "id": "mc013",
@@ -476,7 +797,9 @@
           ],
           "address": "강남구 논현로 97길 23 역삼힐스 102동 1층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/173e0fa350104f69b4f12bd8f4f101b8.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5027377148747,
+          "lng": 127.033765382744
         },
         {
           "id": "mc014",
@@ -488,7 +811,9 @@
           ],
           "address": "북구 금곡대로 20번길 21 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/859605683a3d4fbda884ce31ad3b58b5.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.2121296004578,
+          "lng": 129.005869496606
         },
         {
           "id": "mc015",
@@ -500,7 +825,9 @@
           ],
           "address": "수영구 민락로 14번길 28 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/f6df6dcb95f746b0913d04e806ae1c12.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1576953524451,
+          "lng": 129.122854712043
         },
         {
           "id": "mc016",
@@ -512,7 +839,9 @@
           ],
           "address": "부산진구 동성로 49번길 38-1 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/f9686893d0da4cb698bb015d7f9180ff.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1551337662558,
+          "lng": 129.066373253328
         },
         {
           "id": "mc017",
@@ -524,7 +853,9 @@
           ],
           "address": "용산구 한강대로 62다길 29 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/9b6f08055a864528a3ce092ccbb85d88.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5325403467892,
+          "lng": 126.974737930578
         },
         {
           "id": "mc018",
@@ -536,7 +867,9 @@
           ],
           "address": "강남구 논현로 24길 21, 2층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/db7b5d1c77cf4ac7b95f04f317ff24eb.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.4821098225099,
+          "lng": 127.044767382161
         },
         {
           "id": "mc019",
@@ -548,7 +881,9 @@
           ],
           "address": "용산구 원효로63길 27 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/f46d4fcf380943d895eb60ff9dc7b65c.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.537959998415,
+          "lng": 126.963524826628
         },
         {
           "id": "mc020",
@@ -560,7 +895,9 @@
           ],
           "address": "강남구 도산대로 75길 15, 지하 1층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/476d8771c68c4c1794bf7277466d3d64.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5251927478858,
+          "lng": 127.045718384766
         },
         {
           "id": "mc021",
@@ -572,7 +909,9 @@
           ],
           "address": "강남구 학동로 97길 41 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/a3b890e4fdcc419e8ff71433269cc608.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5224089749768,
+          "lng": 127.054313613882
         },
         {
           "id": "mc022",
@@ -584,7 +923,9 @@
           ],
           "address": "강남구 논현로 152길 9, 4층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/abb421ffd72843f9affa6240646ff2d4.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5210992109053,
+          "lng": 127.028936921289
         },
         {
           "id": "mc023",
@@ -596,7 +937,9 @@
           ],
           "address": "중구 동호로 12길 98 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/ce0067d5f4014b4186b0ba3a62f816b2.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5594645190969,
+          "lng": 127.012414652166
         },
         {
           "id": "mc024",
@@ -608,7 +951,9 @@
           ],
           "address": "중구 퇴계로85길 12-10 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/b23911143b6d4b7ab617ad3ad00a957b.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5662673515191,
+          "lng": 127.020008095066
         },
         {
           "id": "mc025",
@@ -621,7 +966,9 @@
           ],
           "address": "마포구 동교로 12길 16 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/7c16ff62981841b897d6bf7bab626165.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5535864059257,
+          "lng": 126.912321582
         },
         {
           "id": "mc026",
@@ -634,7 +981,9 @@
           ],
           "address": "송파구 오금로 36길 26-1 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/d7066057313b4ebc82650dd10cd73dc6.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5015343677051,
+          "lng": 127.124072910932
         },
         {
           "id": "mc027",
@@ -647,7 +996,9 @@
           ],
           "address": "강남구 테헤란로 517, 현대백화점 10층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/10da054538cb4fb4b23baed509fcbe75.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5086151302204,
+          "lng": 127.059765116537
         },
         {
           "id": "mc028",
@@ -660,7 +1011,9 @@
           ],
           "address": "사하구 비봉로 6 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/de7cc1266405418ebe553b063c374aa4.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.095694521066,
+          "lng": 128.962482014543
         },
         {
           "id": "mc029",
@@ -672,7 +1025,9 @@
           ],
           "address": "용산구 한남대로 21길 18, 2층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/574331e050ac44a1a4df3af3e11e7f1e.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5340942312917,
+          "lng": 127.006165849642
         },
         {
           "id": "mc030",
@@ -685,7 +1040,9 @@
           ],
           "address": "마포구 성지 3길 22 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/6183d729114946dfb90d3232bc9d3361.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5466179419902,
+          "lng": 126.914210915835
         },
         {
           "id": "mc031",
@@ -698,7 +1055,9 @@
           ],
           "address": "수영구 광안로 62번길 10 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/4a353be278164083a92955b2494a9a48.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1544039279275,
+          "lng": 129.118277940394
         },
         {
           "id": "mc032",
@@ -710,7 +1069,9 @@
           ],
           "address": "해운대구 해운대해변로 296 파라다이스호텔 지하 1층 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/bf3448d6469a4207908aaa3a7b37701b.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1602212408572,
+          "lng": 129.165269043658
         },
         {
           "id": "mc033",
@@ -723,7 +1084,9 @@
           ],
           "address": "서울 마포구 동교로 265, 4층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/ba6fb98b75b04ffea4625cb1b8e536b9.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5633646437391,
+          "lng": 126.925274142123
         },
         {
           "id": "mc034",
@@ -735,7 +1098,9 @@
           ],
           "address": "강남구 봉은사로 86길 30 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/c3f03762e0fb4abcadae3329c56aed0e.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5114486889099,
+          "lng": 127.056865845073
         },
         {
           "id": "mc035",
@@ -747,7 +1112,9 @@
           ],
           "address": "성동구 고산자로 14길 26 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/7ee02668cbb6490c8373b9d60b4a3672.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.563404956031,
+          "lng": 127.037767815269
         },
         {
           "id": "mc036",
@@ -759,7 +1126,9 @@
           ],
           "address": "강남구 선릉로 162길 16, 2층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/7b5c6f58a08344c09a92a7e78325524b.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5267080116008,
+          "lng": 127.041691658114
         },
         {
           "id": "mc037",
@@ -771,7 +1140,9 @@
           ],
           "address": "중구 을지로 30, 롯데호텔 37층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/711b180b25324958af136d5790577220.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5653458904198,
+          "lng": 126.9810075639
         },
         {
           "id": "mc038",
@@ -783,7 +1154,9 @@
           ],
           "address": "마포구 성미산로 165-1 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/695c21fb4be7482aa80d187b9148aea6.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5646633414656,
+          "lng": 126.92456870688
         },
         {
           "id": "mc039",
@@ -795,7 +1168,9 @@
           ],
           "address": "강남구 삼성로 555 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/a61f90da3bf54d769f7fc75b4dc91928.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5110163357276,
+          "lng": 127.053900663553
         },
         {
           "id": "mc040",
@@ -808,7 +1183,9 @@
           ],
           "address": "종로구 새문안로 97, 포시즌스 호텔 11층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/5fa2110a2cd34151ac9d1d3791f1b374.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5706978504521,
+          "lng": 126.975398227489
         },
         {
           "id": "mc041",
@@ -820,7 +1197,9 @@
           ],
           "address": "강남구 선릉로 148길 48-12, 지하 1층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/5e79df570cca40b6a28fe2666444f9bc.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5222303672862,
+          "lng": 127.043259315881
         },
         {
           "id": "mc042",
@@ -833,7 +1212,9 @@
           ],
           "address": "종로구 효자로 49, 4층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/3736579f7a9949b4a47834df583bb065.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5804941090196,
+          "lng": 126.973391504832
         },
         {
           "id": "mc043",
@@ -845,7 +1226,9 @@
           ],
           "address": "중구 을지로 30, 롯데호텔 35층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/cf01a94e8aa64cc4b44819fc6dc5d08d.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5653458904198,
+          "lng": 126.9810075639
         },
         {
           "id": "mc044",
@@ -857,7 +1240,9 @@
           ],
           "address": "해운대구 좌동순환로 480 Busan Busan",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/1160f34636544dc9b1d4c41ed02bdc4c.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 35.1640800813671,
+          "lng": 129.170077834284
         },
         {
           "id": "mc045",
@@ -869,7 +1254,9 @@
           ],
           "address": "강남구 언주로 157길 8-4, 2 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/bc8c904b25ca4caeb7cc1ba5ff273662.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": null,
+          "lng": null
         },
         {
           "id": "mc046",
@@ -881,7 +1268,9 @@
           ],
           "address": "성북구 동소문로 17길 28 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/2def5c86ee004e70a80d04a1ec6fd0c1.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5935419371046,
+          "lng": 127.015411648118
         },
         {
           "id": "mc047",
@@ -893,7 +1282,9 @@
           ],
           "address": "강남구 학동로 97길 41, 4층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/8e36dcd72bdc4b03b0fce54848058cc2.jpeg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5224089749768,
+          "lng": 127.054313613882
         },
         {
           "id": "mc048",
@@ -906,7 +1297,9 @@
           ],
           "address": "마포구 양화로 1길 21, 2층 Seoul Seoul Capital Area",
           "thumbnailUrl": "https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/712c7d5270da459b94d2677cbb7486a8.jpg?width=1000",
-          "photoUrls": []
+          "photoUrls": [],
+          "lat": 37.5495946668227,
+          "lng": 126.910456894059
         }
       ]
     }
