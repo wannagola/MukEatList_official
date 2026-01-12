@@ -8,5 +8,7 @@ data class Restaurant(
     val tags: List<String>,
     val address: String,
     val thumbnailUrl: String,
-    val photoUrls: List<String>
+    val photoUrls: List<String>,
+    val lat: Double,
+    val lng: Double
 )
