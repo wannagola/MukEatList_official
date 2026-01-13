@@ -38,6 +38,32 @@ import com.example.mukeatlist.R
 import com.example.mukeatlist.viewmodel.BadgeUiState
 import com.example.mukeatlist.viewmodel.MyPageViewModel
 import com.example.mukeatlist.viewmodel.MyPageViewModelFactory
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.ui.draw.rotate
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import com.example.mukeatlist.ui.common.BadgeDetailDialog
+import androidx.compose.foundation.clickable
+import com.example.mukeatlist.ui.common.getCategoryIcon
+import androidx.compose.ui.viewinterop.AndroidView
+
+
+// 카카오맵 관련 import
+import com.kakao.vectormap.MapLifeCycleCallback
+import com.kakao.vectormap.KakaoMapReadyCallback
+import com.kakao.vectormap.KakaoMap
+import com.kakao.vectormap.LatLng
+import com.kakao.vectormap.MapView
+import com.kakao.vectormap.camera.CameraUpdateFactory
+import com.kakao.vectormap.label.LabelOptions
+import com.kakao.vectormap.label.LabelStyle
+import com.kakao.vectormap.label.LabelStyles
+import com.example.mukeatlist.viewmodel.RestaurantViewModel
+import com.example.mukeatlist.viewmodel.RestaurantViewModelFactory
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 
 // =========================================================
@@ -50,6 +76,13 @@ fun MyPageScreen(
     onNavigateToStamp: (Map<String, Int>) -> Unit
 ) {
     val context = LocalContext.current
+
+    // ViewModel들
+    val myPageViewModel: MyPageViewModel = viewModel(factory = MyPageViewModelFactory(context))
+    val resViewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModelFactory(context))
+
+    val totalVisitedCount by myPageViewModel.totalVisitedCount.collectAsState()
+    val badges by myPageViewModel.badges.collectAsState()
     val viewModel: MyPageViewModel = viewModel(
         factory = MyPageViewModelFactory(context)
     )
@@ -57,6 +90,14 @@ fun MyPageScreen(
     val totalVisitedCount by viewModel.totalVisitedCount.collectAsState()
     val badges by viewModel.badges.collectAsState()
     val activeBadgeCount = badges.count { it.isCompleted }
+
+    // 식당 데이터 및 방문 필터링
+    val restaurants by resViewModel.restaurants.collectAsState()
+    val visitedIds by resViewModel.visitedIds.collectAsState()
+    val visitedRestaurants = remember(restaurants, visitedIds) {
+        restaurants.filter { visitedIds.contains(it.id) }
+    }
+
     var selectedBadge by remember { mutableStateOf<BadgeUiState?>(null) }
 
     // [핵심 로직] 카테고리별 대표 뱃지 3개 추출
@@ -201,6 +242,56 @@ fun MyPageScreen(
             }
         }
 
+/*이거해해결해
+        item {
+            Text(
+                text = "내가 정복한 맛집 지도",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(vertical = 12.dp, horizontal = 4.dp)
+            )
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp),
+                shape = RoundedCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            ) {
+                AndroidView(
+                    modifier = Modifier.fillMaxSize(),
+                    factory = { ctx ->
+                        MapView(ctx).apply {
+                            start(object : MapLifeCycleCallback() {
+                                override fun onMapDestroy() {}
+                                override fun onMapError(error: Exception?) {}
+                            }, object : KakaoMapReadyCallback() {
+                                override fun onMapReady(kakaoMap: KakaoMap) {
+                                    val layer = kakaoMap.labelManager?.layer
+                                    val styles = kakaoMap.labelManager?.addLabelStyles(
+                                        LabelStyles.from(LabelStyle.from(R.drawable.map_pin))
+                                    )
+                                    visitedRestaurants.forEach { res ->
+                                        val pos = LatLng.from(res.lat.toDouble(), res.lng.toDouble())
+                                        layer?.addLabel(
+                                            LabelOptions.from(pos).setStyles(styles)
+                                        )
+                                    }
+                                    if (visitedRestaurants.isNotEmpty()) {
+                                        val firstPos = LatLng.from(
+                                            visitedRestaurants[0].lat.toDouble(),
+                                            visitedRestaurants[0].lng.toDouble()
+                                        )
+                                        kakaoMap.moveCamera(CameraUpdateFactory.newCenterPosition(firstPos, 10))
+                                    }
+                                }
+                            })
+                        }
+                    },
+                    update = { /* 데이터 갱신 시 지도 업데이트가 필요하면 여기에 작성 */ }
+                )
+            }
+            Spacer(modifier = Modifier.height(24.dp))
+        */
         // -----------------------------------------------------
         // 3. 대표 뱃지 3개 가로 배치 (수정됨)
         // -----------------------------------------------------
@@ -295,6 +386,8 @@ fun MyPageScreen(
             onDismiss = { selectedBadge = null }
         )
     }
+
+
 }
 
 // =========================================================
