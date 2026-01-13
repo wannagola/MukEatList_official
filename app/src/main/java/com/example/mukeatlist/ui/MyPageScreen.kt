@@ -47,7 +47,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import com.example.mukeatlist.ui.common.BadgeDetailDialog
 import androidx.compose.foundation.clickable
-import com.example.mukeatlist.ui.common.getCategoryIcon
+//import com.example.mukeatlist.ui.common.getCategoryIcon
 import androidx.compose.ui.viewinterop.AndroidView
 
 
@@ -64,7 +64,7 @@ import com.kakao.vectormap.label.LabelStyles
 import com.example.mukeatlist.viewmodel.RestaurantViewModel
 import com.example.mukeatlist.viewmodel.RestaurantViewModelFactory
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 
 // =========================================================
 // 1. 메인 화면 (MyPageScreen)
@@ -77,21 +77,15 @@ fun MyPageScreen(
 ) {
     val context = LocalContext.current
 
-    // ViewModel들
+    // [해결] ViewModel 및 State 선언 통합 (중복 제거)
     val myPageViewModel: MyPageViewModel = viewModel(factory = MyPageViewModelFactory(context))
     val resViewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModelFactory(context))
 
     val totalVisitedCount by myPageViewModel.totalVisitedCount.collectAsState()
     val badges by myPageViewModel.badges.collectAsState()
-    val viewModel: MyPageViewModel = viewModel(
-        factory = MyPageViewModelFactory(context)
-    )
-
-    val totalVisitedCount by viewModel.totalVisitedCount.collectAsState()
-    val badges by viewModel.badges.collectAsState()
     val activeBadgeCount = badges.count { it.isCompleted }
 
-    // 식당 데이터 및 방문 필터링
+    // 식당 데이터 및 방문 필터링 (지도용)
     val restaurants by resViewModel.restaurants.collectAsState()
     val visitedIds by resViewModel.visitedIds.collectAsState()
     val visitedRestaurants = remember(restaurants, visitedIds) {
@@ -100,23 +94,16 @@ fun MyPageScreen(
 
     var selectedBadge by remember { mutableStateOf<BadgeUiState?>(null) }
 
-    // [핵심 로직] 카테고리별 대표 뱃지 3개 추출
-    // 1. 획득한 것 중 가장 높은 티어(ID가 작은 것)
-    // 2. 없으면 가장 낮은 티어(ID가 큰 것 = 브론즈)를 잠금 상태로
+    // 대표 뱃지 추출 로직
     val representativeBadges = remember(badges) {
         val categories = listOf("blackwhitechef", "michelin", "tzuyang")
         categories.mapNotNull { category ->
             val categoryBadges = badges.filter { it.categoryId == category }
-
-            // 획득한 뱃지 중 ID가 가장 작은 것(최상위 티어) 찾기
             val bestBadge = categoryBadges.filter { it.isCompleted }.minByOrNull { it.id }
-
-            // 획득한 게 없으면 ID가 가장 큰 것(브론즈) 선택
             bestBadge ?: categoryBadges.maxByOrNull { it.id }
         }
     }
 
-    // 배경 그라데이션
     val gradientBrush = Brush.linearGradient(
         colors = listOf(Color(0xFF660033), Color(0xFFB36685)),
         start = Offset.Zero,
@@ -124,80 +111,28 @@ fun MyPageScreen(
     )
 
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues),
+        modifier = Modifier.fillMaxSize().padding(paddingValues),
         contentPadding = PaddingValues(16.dp)
     ) {
-        // -----------------------------------------------------
         // 1. 상단 통계 카드
-        // -----------------------------------------------------
         item {
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .animateContentSize(),
+                modifier = Modifier.fillMaxWidth().animateContentSize(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
-                Box(
-                    modifier = Modifier
-                        .background(brush = gradientBrush)
-                        .fillMaxWidth()
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(20.dp)
-                    ) {
-                        Text(
-                            text = "맛집 도장깨기",
-                            color = Color.White,
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = "나만의 맛집 탐방 기록",
-                            color = Color.White,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Medium
-                        )
+                Box(modifier = Modifier.background(brush = gradientBrush).fillMaxWidth()) {
+                    Column(modifier = Modifier.fillMaxWidth().padding(20.dp)) {
+                        Text(text = "맛집 도장깨기", color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Bold)
                         Spacer(modifier = Modifier.height(8.dp))
-
-                        // 내부 미니 카드 및 확장형 그리드
                         Card(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(16.dp),
-                            colors = CardDefaults.cardColors(
-                                containerColor = Color.White.copy(alpha = 0.2f)
-                            ),
+                            colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.2f)),
                         ) {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 12.dp),
-                            ) {
-                                Text(
-                                    text = totalVisitedCount.toString(),
-                                    color = Color.White,
-                                    fontSize = 32.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text(
-                                    text = "총 방문 식당",
-                                    color = Color.White,
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Medium,
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-
-                                // 확장형 그리드 (기존 유지)
+                            Column(modifier = Modifier.fillMaxWidth().padding(top = 12.dp)) {
+                                Text(text = totalVisitedCount.toString(), color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                                Text(text = "총 방문 식당", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                                 ExpandableBadgeGrid(badges)
                             }
                         }
@@ -207,53 +142,37 @@ fun MyPageScreen(
             Spacer(modifier = Modifier.height(24.dp))
         }
 
-        // -----------------------------------------------------
-        // 2. 뱃지 섹션 헤더 (Sticky Header)
-        // -----------------------------------------------------
+        // 2. 뱃지 섹션 헤더
         stickyHeader {
             Surface(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        // 스탬프 화면으로 이동 (데이터 변환)
-                        val visitCounts = badges.associate { it.categoryId to (it.visitedCount ?: 0) }
-                        onNavigateToStamp(visitCounts)
-                    },
+                modifier = Modifier.fillMaxWidth().clickable {
+                    val visitCounts = badges.associate { it.categoryId to (it.visitedCount ?: 0) }
+                    onNavigateToStamp(visitCounts)
+                },
                 color = MaterialTheme.colorScheme.background
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 16.dp, horizontal = 4.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "나의 뱃지 ($activeBadgeCount)",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowRight,
-                        contentDescription = "스탬프 화면 이동",
-                        tint = Color.Gray
-                    )
+                Row(modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp, horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+                    Text(text = "나의 뱃지 ($activeBadgeCount)", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    Icon(imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "이동", tint = Color.Gray)
                 }
             }
         }
 
-/*이거해해결해
+        // 3. 대표 뱃지 3개 가로 배치
         item {
-            Text(
-                text = "내가 정복한 맛집 지도",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(vertical = 12.dp, horizontal = 4.dp)
-            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+                representativeBadges.forEach { badge ->
+                    BadgeIconItem(badge = badge, onClick = { if (badge.isCompleted) selectedBadge = badge })
+                }
+            }
+            Spacer(modifier = Modifier.height(32.dp))
+        }
+
+        // [해결] 주석 처리되었던 지도 섹션 활성화
+        item {
+            Text(text = "내가 정복한 맛집 지도", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(vertical = 12.dp, horizontal = 4.dp))
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(300.dp),
+                modifier = Modifier.fillMaxWidth().height(300.dp),
                 shape = RoundedCornerShape(16.dp),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
@@ -270,125 +189,34 @@ fun MyPageScreen(
                                     val styles = kakaoMap.labelManager?.addLabelStyles(
                                         LabelStyles.from(LabelStyle.from(R.drawable.map_pin))
                                     )
+                                    // 방문한 식당들 마커 추가
                                     visitedRestaurants.forEach { res ->
                                         val pos = LatLng.from(res.lat.toDouble(), res.lng.toDouble())
-                                        layer?.addLabel(
-                                            LabelOptions.from(pos).setStyles(styles)
-                                        )
+                                        layer?.addLabel(LabelOptions.from(pos).setStyles(styles))
                                     }
+                                    // 첫 번째 식당으로 카메라 이동
                                     if (visitedRestaurants.isNotEmpty()) {
-                                        val firstPos = LatLng.from(
-                                            visitedRestaurants[0].lat.toDouble(),
-                                            visitedRestaurants[0].lng.toDouble()
-                                        )
+                                        val firstPos = LatLng.from(visitedRestaurants[0].lat.toDouble(), visitedRestaurants[0].lng.toDouble())
                                         kakaoMap.moveCamera(CameraUpdateFactory.newCenterPosition(firstPos, 10))
                                     }
                                 }
                             })
                         }
                     },
-                    update = { /* 데이터 갱신 시 지도 업데이트가 필요하면 여기에 작성 */ }
+                    update = { /* 데이터 갱신 시 로직 필요하면 추가 */ }
                 )
             }
             Spacer(modifier = Modifier.height(24.dp))
-        */
-        // -----------------------------------------------------
-        // 3. 대표 뱃지 3개 가로 배치 (수정됨)
-        // -----------------------------------------------------
-        item {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly // 간격 균등 분배
-            ) {
-                representativeBadges.forEach { badge ->
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .width(100.dp)
-                            .clickable {
-                                // 획득했을 때만 팝업
-                                if (badge.isCompleted) {
-                                    selectedBadge = badge
-                                }
-                            }
-                    ) {
-                        // 스탬프 아이콘 UI (StampItem 로직과 유사하게 구현)
-                        Box(
-                            modifier = Modifier
-                                .size(72.dp)
-                                .border(2.dp, Color.Black, CircleShape)
-                                .clip(CircleShape)
-                                .background(
-                                    if (badge.isCompleted) getStampBrush(badge.id)
-                                    else SolidColor(Color.LightGray)
-                                ),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            if (badge.isCompleted) {
-                                Icon(
-                                    painter = painterResource(id = getCategoryIcon(badge.categoryId)),
-                                    contentDescription = null,
-                                    tint = Color.White,
-                                    modifier = Modifier.fillMaxSize(0.75f) // 아이콘 확대
-                                )
-                            } else {
-                                Icon(
-                                    imageVector = Icons.Default.Lock,
-                                    contentDescription = null,
-                                    tint = Color.Gray,
-                                    modifier = Modifier.fillMaxSize(0.6f)
-                                )
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        // 하단 텍스트 처리
-                        val categoryName = when (badge.categoryId) {
-                            "blackwhitechef" -> "흑백요리사"
-                            "tzuyang" -> "쯔양"
-                            "michelin" -> "미슐랭"
-                            else -> "맛집"
-                        }
-
-                        val tierName = if (badge.isCompleted) {
-                            when (badge.id) {
-                                in 1..3 -> "마스터"
-                                in 4..6 -> "골드"
-                                in 7..9 -> "실버"
-                                else -> "브론즈"
-                            }
-                        } else {
-                            ""
-                        }
-
-                        // 획득 시: "흑백요리사 마스터", 미획득 시: "흑백요리사"
-                        Text(
-                            text = if (badge.isCompleted) "$categoryName $tierName" else categoryName,
-                            fontSize = 14.sp,
-                            fontWeight = if (badge.isCompleted) FontWeight.Bold else FontWeight.Normal,
-                            color = if (badge.isCompleted) Color.Black else Color.Gray,
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
-            }
-            Spacer(modifier = Modifier.height(32.dp))
         }
     }
 
-    // -----------------------------------------------------
-    // 4. 뱃지 상세 팝업 (새로운 스타일 적용)
-    // -----------------------------------------------------
     if (selectedBadge != null) {
-        BadgeDetailDialog(
-            badge = selectedBadge!!,
-            onDismiss = { selectedBadge = null }
-        )
+        BadgeDetailDialog(badge = selectedBadge!!, onDismiss = { selectedBadge = null })
     }
-
-
 }
+
+
+
 
 // =========================================================
 // 2. 팝업 컴포넌트 (BadgeDetailDialog) - MyStampScreen 스타일 적용
@@ -638,9 +466,85 @@ fun ExpandableBadgeGrid(badges: List<BadgeUiState>) {
         }
     }
 }
-/*
-// 색상 그라데이션 헬퍼
+
+
+// 필수로 있어야 하는 헬퍼 함수들 (파일 하단에 추가)
+
+// ==========================================
+// 파일 맨 아래에 붙여넣으세요
+// ==========================================
+
 @Composable
+fun BadgeIconItem(badge: BadgeUiState, onClick: () -> Unit) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.width(100.dp).clickable { onClick() }
+    ) {
+        Box(
+            modifier = Modifier.size(72.dp).border(2.dp, Color.Black, CircleShape).clip(CircleShape)
+                .background(
+                    if (badge.isCompleted) getStampBrush(badge.id)
+                    else SolidColor(Color.LightGray)
+                ),
+            contentAlignment = Alignment.Center
+        ) {
+            if (badge.isCompleted) {
+                // getCategoryIcon 함수 호출
+                Icon(
+                    painter = painterResource(id = getCategoryIcon(badge.categoryId)),
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.fillMaxSize(0.75f)
+                )
+            } else {
+                Icon(
+                    imageVector = Icons.Default.Lock,
+                    contentDescription = null,
+                    tint = Color.Gray,
+                    modifier = Modifier.fillMaxSize(0.6f)
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // 텍스트 표시 로직
+        val categoryName = when (badge.categoryId) {
+            "blackwhitechef" -> "흑백요리사"
+            "tzuyang" -> "쯔양"
+            "michelin" -> "미슐랭"
+            else -> "맛집"
+        }
+        val tierName = if (badge.isCompleted) {
+            when (badge.id) {
+                in 1..3 -> "마스터"
+                in 4..6 -> "골드"
+                in 7..9 -> "실버"
+                else -> "브론즈"
+            }
+        } else ""
+
+        Text(
+            text = if (badge.isCompleted) "$categoryName $tierName" else categoryName,
+            fontSize = 14.sp,
+            fontWeight = if (badge.isCompleted) FontWeight.Bold else FontWeight.Normal,
+            color = if (badge.isCompleted) Color.Black else Color.Gray,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+// Brush 타입을 인식 못하면 import androidx.compose.ui.graphics.Brush 필요
+
+
+/*
+fun getCategoryIcon(categoryId: String): Int {
+    return when (categoryId) {
+        "tzuyang" -> R.drawable.youtube_icon // 이미지가 없다면 R.drawable.ic_launcher_foreground 등으로 임시 변경
+        "michelin" -> R.drawable.michelin_icon
+        "blackwhitechef" -> R.drawable.blackwhitechef_icon
+        else -> android.R.drawable.btn_star_big_on
+    }
+}
 fun getStampBrush(id: Int): Brush {
     val colors = when (id) {
         in 1..3 -> listOf(Color(0xFFE056FD), Color(0xFF686DE0))
@@ -652,14 +556,6 @@ fun getStampBrush(id: Int): Brush {
     return Brush.verticalGradient(colors)
 }
 
-// 아이콘 리소스 헬퍼
-@Composable
-fun getCategoryIcon(categoryId: String): Int {
-    return when (categoryId) {
-        "tzuyang" -> R.drawable.youtube_icon
-        "michelin" -> R.drawable.michelin_icon
-        "blackwhitechef" -> R.drawable.blackwhitechef_icon
-        else -> android.R.drawable.btn_star_big_on
-    }
-}
 */
+
+
