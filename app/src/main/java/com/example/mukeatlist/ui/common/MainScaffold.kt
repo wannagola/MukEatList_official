@@ -16,19 +16,24 @@ import com.example.mukeatlist.ui.CategorySelectionScreen
 import com.example.mukeatlist.viewmodel.PhotoFeedViewModelFactory
 import androidx.activity.compose.BackHandler
 import com.example.mukeatlist.ui.ListScreen
+import com.example.mukeatlist.ui.MyStampScreen
+
 
 @Composable
 fun MainScaffold() {
-    // 현재 탭 상태 (기본: 사진 피드로 시작하고 싶으면 Feed)
+    val items = listOf(BottomNavItem.List, BottomNavItem.Feed, BottomNavItem.My)
+    val context = LocalContext.current
+
     var currentRoute by remember { mutableStateOf(BottomNavItem.List.route) }
 
-    val items = listOf(
-        BottomNavItem.List,
-        BottomNavItem.Feed,
-        BottomNavItem.My
-    )
-    
-    val context = LocalContext.current
+    // [List 탭용 상태]
+    var selectedCategory by remember { mutableStateOf<String?>(null) }
+
+    // [My 탭용 상태 - 추가됨]
+    // 스탬프 화면을 보여줄지 여부
+    var showStampScreen by remember { mutableStateOf(false) }
+    // 스탬프 화면에 넘겨줄 데이터 (방문 횟수)
+    var myStampData by remember { mutableStateOf<Map<String, Int>>(emptyMap()) }
 
     Scaffold(
         topBar = { AppTopBar() },
@@ -36,49 +41,71 @@ fun MainScaffold() {
             BottomNavBar(
                 items = items,
                 currentRoute = currentRoute,
-                onItemClick = { item -> currentRoute = item.route }
+                onItemClick = { item ->
+                    if (currentRoute == item.route) {
+                        // 이미 선택된 탭을 다시 눌렀을 때 (초기화 로직)
+                        if (item.route == BottomNavItem.List.route) {
+                            selectedCategory = null
+                        }
+                        // [추가됨] My 탭을 다시 누르면 스탬프 화면 닫고 메인 MyPage로 복귀
+                        if (item.route == BottomNavItem.My.route) {
+                            showStampScreen = false
+                        }
+                    } else {
+                        currentRoute = item.route
+                    }
+                }
             )
         }
     ) { paddingValues ->
-        var selectedCategory by remember { mutableStateOf<String?>(null) }
-
         when (currentRoute) {
             BottomNavItem.List.route -> {
-                // [핵심 로직] 변수 값에 따라 화면 교체
                 if (selectedCategory == null) {
-                    // A. 선택된 게 없으면 -> 카테고리 고르는 화면
                     CategorySelectionScreen(
                         paddingValues = paddingValues,
-                        onCategoryClick = { clickedCategory ->
-                            // 클릭하면 변수에 값 저장 -> 화면이 자동으로 바뀜!
-                            selectedCategory = clickedCategory
-                        }
+                        onCategoryClick = { selectedCategory = it }
                     )
                 } else {
-                    // B. 선택된 게 있으면 -> 맛집 리스트 화면
-
-                    // [중요] 핸드폰 뒤로가기 버튼 눌렀을 때 처리
-                    BackHandler {
-                        selectedCategory = null // 다시 null로 만들면 목록으로 돌아감
-                    }
-
+                    BackHandler { selectedCategory = null }
                     ListScreen(
                         paddingValues = paddingValues,
-                        categoryId = selectedCategory!!, // "한식" 등의 데이터 전달
-                        onBackClick = { selectedCategory = null } // 뒤로가기 버튼용
+                        categoryId = selectedCategory!!,
+                        onBackClick = { selectedCategory = null }
                     )
                 }
-            }            BottomNavItem.Feed.route -> {
-                val vm: PhotoFeedViewModel = viewModel(
-                    factory = PhotoFeedViewModelFactory(context)
-                )
-                PhotoFeedScreen(
-                    paddingValues = paddingValues,
-                    vm = vm,
-                    onAddClick = {}
-                )
             }
-            BottomNavItem.My.route -> MyPageScreen(paddingValues)
+            BottomNavItem.Feed.route -> {
+                val vm: PhotoFeedViewModel = viewModel(factory = PhotoFeedViewModelFactory(context))
+                PhotoFeedScreen(paddingValues = paddingValues, vm = vm, onAddClick = {})
+            }
+            BottomNavItem.My.route -> {
+                // [핵심 변경] 상태에 따라 화면 교체 (MyPage <-> MyStamp)
+                if (showStampScreen) {
+                    // 1. 스탬프 화면 (MyStampScreen)
+
+                    // 뒤로가기 누르면 MyPage로 복귀
+                    BackHandler {
+                        showStampScreen = false
+                    }
+
+                    MyStampScreen(
+                        paddingValues = paddingValues,
+                        visitCounts = myStampData,
+                        onBackClick = { showStampScreen = false }
+                    )
+
+                } else {
+                    // 2. 마이 페이지 (MyPageScreen)
+                    MyPageScreen(
+                        paddingValues = paddingValues,
+                        onNavigateToStamp = { counts ->
+                            // 콜백: 화살표 누르면 데이터 저장하고 화면 전환
+                            myStampData = counts
+                            showStampScreen = true
+                        }
+                    )
+                }
+            }
         }
     }
 }

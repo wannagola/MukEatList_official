@@ -1,6 +1,6 @@
 package com.example.mukeatlist.ui
 
-import com.example.mukeatlist.R // 본인 패키지명 R
+import com.example.mukeatlist.R
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.foundation.background
@@ -11,31 +11,19 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Place // 임시 이미지용 아이콘
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
-import androidx.compose.material3.Scaffold
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.mukeatlist.BottomNavItem
-import com.example.mukeatlist.ui.common.AppTopBar
-import com.example.mukeatlist.ui.common.BottomNavBar
-import com.example.mukeatlist.ui.photofeed.PhotoFeedScreen
-import com.example.mukeatlist.viewmodel.PhotoFeedViewModel
-import com.example.mukeatlist.viewmodel.PhotoFeedViewModelFactory
 
 // 1. 더미 데이터 모델 (실제 앱에서는 서버나 DB 데이터 사용)
 data class CategoryItemData(
