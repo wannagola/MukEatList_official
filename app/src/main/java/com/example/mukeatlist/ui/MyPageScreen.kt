@@ -88,9 +88,10 @@ fun MyPageScreen(
     // 식당 데이터 및 방문 필터링 (지도용)
     val restaurants by resViewModel.restaurants.collectAsState()
     val visitedIds by resViewModel.visitedIds.collectAsState()
-    val visitedRestaurants = remember(restaurants, visitedIds) {
+    /*val visitedRestaurants = remember(restaurants, visitedIds) {
         restaurants.filter { visitedIds.contains(it.id) }
-    }
+    }*/
+    val visitedRestaurants by resViewModel.visitedRestaurants.collectAsState()
 
     var selectedBadge by remember { mutableStateOf<BadgeUiState?>(null) }
 

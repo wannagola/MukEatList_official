@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine // 이걸 꼭 확인하세요!
+import kotlinx.coroutines.flow.stateIn
+
 
 class RestaurantViewModel(
     private val repository: RestaurantRepository,
@@ -20,7 +24,8 @@ class RestaurantViewModel(
 
     private val _categories = MutableStateFlow<List<com.example.mukeatlist.data.model.Category>>(emptyList())
     val categories: StateFlow<List<com.example.mukeatlist.data.model.Category>> = _categories
-
+    // 🌟 추가: 카테고리와 상관없이 "전체 식당"을 들고 있는 Flow
+    private val _allRestaurants = MutableStateFlow<List<Restaurant>>(emptyList())
     private val _selectedCategoryId = MutableStateFlow<String?>(null)
     val selectedCategoryId: StateFlow<String?> = _selectedCategoryId
 
@@ -29,9 +34,21 @@ class RestaurantViewModel(
     
     val visitedIds: StateFlow<Set<String>> = visitRepository.visitedIds
 
+    val visitedRestaurants: StateFlow<List<Restaurant>> = combine(
+        _allRestaurants,
+        visitedIds
+    ) { allRes, ids ->
+        allRes.filter { ids.contains(it.id) }
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = emptyList()
+    )
+
     init {
         loadData()
     }
+
 
     private fun loadData() {
         viewModelScope.launch {
@@ -39,6 +56,7 @@ class RestaurantViewModel(
                 repository.getCategories()
             }
             _categories.value = categoryList
+            _allRestaurants.value = categoryList.flatMap { it.restaurants }
             
              if (categoryList.isNotEmpty()) {
                  onCategorySelected(categoryList.first().id)
