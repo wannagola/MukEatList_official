@@ -34,6 +34,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.zIndex
 
 // 데이터 클래스는 그대로 유지
 data class StampInfo(
@@ -46,16 +47,14 @@ data class StampInfo(
 
 @Composable
 fun MyStampScreen(
-    paddingValues: PaddingValues,
+    paddingValues: PaddingValues, // Scaffold에서 오는 패딩
     visitCounts: Map<String, Int>,
     onBackClick: () -> Unit
 ) {
     val scrollState = rememberScrollState()
-
-    // [추가됨] 현재 선택된 스탬프를 저장하는 상태 (null이면 팝업 안 뜸)
     var selectedStamp by remember { mutableStateOf<StampInfo?>(null) }
 
-    // ID와 방문 횟수 체크 로직
+    // (ID 체크 로직과 stampList 데이터 생성 코드는 기존과 동일하므로 생략하거나 그대로 두세요)
     fun checkCondition(id: Int, currentCount: Int): Boolean {
         return when (id) {
             in 1..3 -> currentCount >= 10
@@ -66,8 +65,8 @@ fun MyStampScreen(
         }
     }
 
-    // 데이터 생성
     val stampList = listOf(
+        // ... 기존 데이터 그대로 ...
         StampInfo(1, -0.71f, -0.34f, checkCondition(1, visitCounts["blackwhitechef"] ?: 0), "blackwhitechef"),
         StampInfo(2, -0.0f, -0.34f, checkCondition(2, visitCounts["michelin"] ?: 0), "michelin"),
         StampInfo(3, 0.72f, -0.34f, checkCondition(3, visitCounts["tzuyang"] ?: 0), "tzuyang"),
@@ -82,21 +81,42 @@ fun MyStampScreen(
         StampInfo(12, 0.73f, 0.74f, checkCondition(12, visitCounts["tzuyang"] ?: 0), "tzuyang")
     )
 
-    Box(
+    // [변경 1] Box 대신 Column 사용
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues)
+            .padding(paddingValues) // 전체 화면 패딩 적용
+            //.background(Color.White) // 전체 배경색 (빈 공간 보일 때 대비)
     ) {
-        // 1층: 스크롤 영역
+        // [변경 2] 헤더를 가장 먼저 배치 (위층)
+        // 기존 TransparentStampHeader를 감싸서 배경색을 줍니다.
         Box(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                //.background(Color.White) // [핵심] 불투명하게 만들기 (흰색 혹은 원하시는 색)
+                .zIndex(1f) // 그림자 등이 필요하면 zIndex 활용
+        ) {
+            TransparentStampHeader(
+                modifier = Modifier.align(Alignment.Center), // 정렬 유지
+                onBackClick = onBackClick
+            )
+        }
+
+        // (선택사항) 헤더와 내용 사이 구분선
+        // HorizontalDivider()
+
+        // [변경 3] 스크롤 영역 (아래층)
+        // weight(1f)를 주어 헤더를 제외한 나머지 공간을 꽉 채우게 함
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f) // 남은 공간 모두 차지
                 .verticalScroll(scrollState)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.mystampscreen_background),
                 contentDescription = null,
-                contentScale = ContentScale.FillWidth,
+                contentScale = ContentScale.FillWidth, // 가로 꽉 차게, 세로는 비율대로
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -104,7 +124,6 @@ fun MyStampScreen(
                 StampItem(
                     stamp = stamp,
                     modifier = Modifier.align(BiasAlignment(stamp.x, stamp.y)),
-                    // [수정됨] 완료된 스탬프일 때만 클릭 시 상태 업데이트
                     onClick = {
                         if (stamp.isCompleted) {
                             selectedStamp = stamp
@@ -113,19 +132,13 @@ fun MyStampScreen(
                 )
             }
         }
-
-        // 2층: 헤더
-        TransparentStampHeader(
-            modifier = Modifier.align(Alignment.TopCenter),
-            onBackClick = onBackClick
-        )
     }
 
-    // [추가됨] 팝업 다이얼로그 표시
+    // 팝업 다이얼로그 (화면 전체 덮어야 하므로 Column 밖에 위치)
     if (selectedStamp != null) {
         StampDetailDialog(
             stamp = selectedStamp!!,
-            onDismiss = { selectedStamp = null } // 닫기 처리
+            onDismiss = { selectedStamp = null }
         )
     }
 }
@@ -254,7 +267,7 @@ fun TransparentStampHeader(
             .fillMaxWidth()
             .height(40.dp) // 일반적인 앱바 높이
             //.padding(horizontal = 4.dp) // 좌우 여백
-            .background(Color.DarkGray.copy(alpha = 0.7f)),
+            .background(Color(0xFFFEFCD6)),
         verticalAlignment = Alignment.CenterVertically
     ) {
         // 뒤로 가기 버튼
@@ -263,7 +276,7 @@ fun TransparentStampHeader(
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = "뒤로 가기",
                 // [중요] 배경이 지도이므로 아이콘이 잘 보이도록 흰색이나 밝은 색 추천
-                tint = Color.White,
+                tint = Color.DarkGray,
                 modifier = Modifier
                     .size(28.dp)
             )
@@ -273,7 +286,7 @@ fun TransparentStampHeader(
             text = "마이페이지",
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White,
+            color = Color.DarkGray,
             modifier = Modifier.padding(start = 8.dp)
         )
     }
