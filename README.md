@@ -136,7 +136,7 @@
 
 ## 🔗 서비스 소개
 
-👉 [https://github.com/wannagola/MukEatList_official.git](https://www.notion.so/EATLIST-2e81668adf138053bafbfe776781ff3a?source=copy_link)
+👉 https://www.notion.so/EATLIST-2e81668adf138053bafbfe776781ff3a?source=copy_link
 
 ---
 
