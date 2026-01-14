@@ -21,7 +21,7 @@
 
 ## 🍖 기획 배경
 
-<img width="1920" height="4320" alt="Image" src="https://github.com/user-attachments/assets/7e460aec-abae-406f-8645-fab31508c124" />
+<img width="1920" height="20000" alt="Image" src="https://github.com/user-attachments/assets/7adec91c-ba00-4f00-864b-e998e76ff236" />
 
 여행이나 음악처럼 음식 역시 사람들에게 큰 즐거움을 주는 콘텐츠이지만,  
 **맛집 탐방은 직접 방문하지 않으면 경험하기 어렵다는 한계**가 존재합니다.
@@ -38,7 +38,7 @@
 
 ## 🍖 문제 정의
 
-<img width="1920" height="12960" alt="Image" src="https://github.com/user-attachments/assets/7adec91c-ba00-4f00-864b-e998e76ff236" />
+<img width="1920" height="4320" alt="Image" src="https://github.com/user-attachments/assets/7e460aec-abae-406f-8645-fab31508c124" />
 
 ---
 
