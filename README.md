@@ -130,14 +130,18 @@
 ## 🍖 개발 스택
 
 🍗 **개발 언어 :** Kotlin
+
 🍗 **SDK :** Android SDK
+
 🍗 **데이터 수집 :** Python(웹크롤링)
+
 🍗 **지도 API :** kakomap API
+
 🍗 **UI/UX :** Figma
 
-## 🍖 깃허브 링크
+## 🍖 서비스 소개
 
-[GitHub - wannagola/MukEatList_official: 세상 맛집은 우리가 접수한다! 맛집 도장깨기 서비스🤤](https://github.com/wannagola/MukEatList_official.git)
+[GitHub - wannagola/MukEatList_official: 세상 맛집은 우리가 접수한다! 맛집 도장깨기 서비스🤤](https://www.notion.so/EATLIST-2e81668adf138053bafbfe776781ff3a?source=copy_link)
 
 ---
 
