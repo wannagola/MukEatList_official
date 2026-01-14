@@ -1,9 +1,4 @@
-[먹EATLIST 2e81668adf138053bafbfe776781ff3a.md](https://github.com/user-attachments/files/24606288/EATLIST.2e81668adf138053bafbfe776781ff3a.md)# 먹EATLIST
-
-## 🍖 메인 포스터
-
-![먹EATLIST 포스터.png](%EB%A8%B9EATLIST_%ED%8F%AC%EC%8A%A4%ED%84%B0.png)# 먹EATLIST
-[Uploading 먹EATLIST 2e81668adf138053b# 먹EATLIST
+# 먹EATLIST
 
 ## 🍖 메인 포스터
 
