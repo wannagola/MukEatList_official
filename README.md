@@ -121,7 +121,7 @@
 
 ## 🍖 Who Made This!!!!
 
-| 👨🏻‍🍳 **김창균** | 👩🏻‍🍳 **서초우** | 👨🏻‍🍳 **성민기** |
+| 👨🏻‍🍳 **[김창균](https://github.com/terbbal)** | 👩🏻‍🍳 **[서초우](https://github.com/akeastshore)** | 👨🏻‍🍳 **[성민기](https://github.com/wannagola)** |
 |:---:|:---:|:---:|
 | 🏫 서울대학교 | 🏫 DGIST | 🏫 부산대학교 |
 | 개발 · 디자인 · 데이터 | 개발 · 데이터 | 기획 · 개발 · 디자인 |
