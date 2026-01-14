@@ -143,26 +143,8 @@
 
 ## 🍖 Who Made This!!!!
 
-**👨🏻‍🍳 김창균**
-
-🍴 서울대학교
-
-🍴 개발/디자인/데이터
-
-[회고](https://www.notion.so/2e81668adf13810eb2cfc0f7daf75b33?pvs=21)
-
-**👩🏻‍🍳 서초우**
-
-🍴DGIST
-
-🍴 개발/데이터
-
-[회고](https://www.notion.so/2e81668adf1381dca1f0dfec50f089d6?pvs=21)
-
-**👨🏻‍🍳 성민기**
-
-🍴 부산대학교
-
-🍴 기획/개발/디자인
-
-[회고](https://www.notion.so/2e81668adf138123836de8040cf3b3c5?pvs=21)
+| 👨🏻‍🍳 **김창균** | 👩🏻‍🍳 **서초우** | 👨🏻‍🍳 **성민기** |
+|:---:|:---:|:---:|
+| 🏫 서울대학교 | 🏫 DGIST | 🏫 부산대학교 |
+| 🔧 개발 · 🎨 디자인 · 📊 데이터 | 🔧 개발 · 📊 데이터 | 📝 기획 · 🔧 개발 · 🎨 디자인 |
+| [회고 보기](https://www.notion.so/2e81668adf13810eb2cfc0f7daf75b33?pvs=21) | [회고 보기](https://www.notion.so/2e81668adf1381dca1f0dfec50f089d6?pvs=21) | [회고 보기](https://www.notion.so/2e81668adf138123836de8040cf3b3c5?pvs=21) |
