@@ -1,7 +1,12 @@
 # 먹EATLIST
 
 ## 🍖 메인 포스터
-
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/e67d89e6-e1c5-4c08-a3e8-3bcb3c971a08" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/84048bc7-7118-44d2-ba44-3b837c9ab206" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/58f68171-bcf7-492e-98a1-30330253e84f" />
+<img width="880" height="1200" alt="Image" src="https://github.com/user-attachments/assets/e1bd5bb4-ad09-4c4d-8d8a-a0e7c512c8d1" />
+<img width="1920" height="4320" alt="Image" src="https://github.com/user-attachments/assets/7e460aec-abae-406f-8645-fab31508c124" />
+<img width="1920" height="12960" alt="Image" src="https://github.com/user-attachments/assets/7adec91c-ba00-4f00-864b-e998e76ff236" />
 ![먹EATLIST 포스터.png](%EB%A8%B9EATLIST_%ED%8F%AC%EC%8A%A4%ED%84%B0.png)
 
 ---
