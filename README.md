@@ -2,9 +2,6 @@
 
 ## 🍖 메인 포스터
 <img width="880" height="1200" alt="Image" src="https://github.com/user-attachments/assets/e1bd5bb4-ad09-4c4d-8d8a-a0e7c512c8d1" />
-<img width="1920" height="4320" alt="Image" src="https://github.com/user-attachments/assets/7e460aec-abae-406f-8645-fab31508c124" />
-<img width="1920" height="12960" alt="Image" src="https://github.com/user-attachments/assets/7adec91c-ba00-4f00-864b-e998e76ff236" />
-![먹EATLIST 포스터.png](%EB%A8%B9EATLIST_%ED%8F%AC%EC%8A%A4%ED%84%B0.png)
 
 ---
 
@@ -22,7 +19,7 @@
 
 ## 🍖 기획 배경
 
-![먹킷리스트 (2).png](%EB%A8%B9%ED%82%B7%EB%A6%AC%EC%8A%A4%ED%8A%B8_(2).png)
+<img width="1920" height="4320" alt="Image" src="https://github.com/user-attachments/assets/7e460aec-abae-406f-8645-fab31508c124" />
 
 여행이나 음악처럼, 음식 역시 사람들에게 큰 즐거움을 주는 콘텐츠이지만 **맛집 탐방은 직접 방문하지 않으면 경험하기 어렵다는 한계가 있다**
 
@@ -32,7 +29,7 @@
 
 ## 🍖 문제 정의
 
-![먹킷리스트 (1).png](%EB%A8%B9%ED%82%B7%EB%A6%AC%EC%8A%A4%ED%8A%B8_(1).png)
+<img width="1920" height="12960" alt="Image" src="https://github.com/user-attachments/assets/7adec91c-ba00-4f00-864b-e998e76ff236" />
 
 ## 🍖 유저 페르소나
 
